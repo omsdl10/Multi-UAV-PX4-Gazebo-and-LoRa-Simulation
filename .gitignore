@@ -1,0 +1,11 @@
+.DS_Store
+__pycache__/
+*.pyc
+
+.run/
+
+logs/
+!logs/.gitkeep
+
+analysis/output/.cache/
+analysis/output/.matplotlib/

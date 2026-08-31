@@ -1,0 +1,54 @@
+radio:
+  frequency_hz: 915000000
+  bandwidth_hz: 125000
+  spreading_factor: 9
+  coding_rate: 5
+  tx_power_dbm: 20
+  receiver_sensitivity_dbm: -123
+  noise_floor_dbm: -120
+  path_loss_exponent: 2.35
+  path_loss_model: log_distance
+  maximum_range_m: 5000
+  random_seed: 42
+  min_snr_db: -12.5
+
+loss:
+  building_loss_db: 18
+  terrain_loss_db: 25
+  channel_loss_scale: 0.08
+  processing_delay_ms_min: 5
+  processing_delay_ms_max: 25
+
+network:
+  network_mode: p2p
+  drone_ids: [1, 2, 3]
+  ttl: 3
+  transmit_interval_s: 1.0
+  payload_bytes: 64
+  manager_host: 127.0.0.1
+  manager_port: 19760
+  mavlink_endpoint: udpin:0.0.0.0:14550
+  position_timeout_s: 10
+  enable_multihop: true
+
+lorawan:
+  gateway_id: 0
+  gateway_x: 0
+  gateway_y: 0
+  gateway_z: 35
+  network_server_id: -1
+  adr_enabled: true
+  ns3_enabled: false
+  ns3_path: ""
+
+world:
+  name: uav_5km_world
+  sdf_path: gazebo/worlds/uav_5km_world.sdf
+  origin_latitude_deg: 47.397971057728974
+  origin_longitude_deg: 8.546163739800146
+  enable_gazebo_pose: true
+
+logging:
+  packet_csv: logs/lora_packets.csv
+  metrics_json: logs/lora_metrics.json
+  topology_csv: logs/topology_changes.csv

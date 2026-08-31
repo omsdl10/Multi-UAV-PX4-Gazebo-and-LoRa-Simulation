@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="520" viewBox="0 0 900 520">
+  <rect width="100%" height="100%" fill="white"/>
+  <text x="450.0" y="30" text-anchor="middle" font-size="22" font-family="Arial, sans-serif" fill="#111">Distance vs packet loss</text>
+  <line x1="82" y1="54.0" x2="868" y2="54.0" stroke="#e5e7eb" /><text x="72" y="58.0" text-anchor="end" font-size="12" fill="#555">0.97</text><line x1="82" y1="133.2" x2="868" y2="133.2" stroke="#e5e7eb" /><text x="72" y="137.2" text-anchor="end" font-size="12" fill="#555">0.78</text><line x1="82" y1="212.4" x2="868" y2="212.4" stroke="#e5e7eb" /><text x="72" y="216.4" text-anchor="end" font-size="12" fill="#555">0.59</text><line x1="82" y1="291.6" x2="868" y2="291.6" stroke="#e5e7eb" /><text x="72" y="295.6" text-anchor="end" font-size="12" fill="#555">0.39</text><line x1="82" y1="370.8" x2="868" y2="370.8" stroke="#e5e7eb" /><text x="72" y="374.8" text-anchor="end" font-size="12" fill="#555">0.20</text><line x1="82" y1="450.0" x2="868" y2="450.0" stroke="#e5e7eb" /><text x="72" y="454.0" text-anchor="end" font-size="12" fill="#555">0.01</text><line x1="82.0" y1="54" x2="82.0" y2="450" stroke="#f1f5f9" /><text x="82.0" y="474" text-anchor="middle" font-size="12" fill="#555">100</text><line x1="106.1" y1="54" x2="106.1" y2="450" stroke="#f1f5f9" /><text x="106.1" y="474" text-anchor="middle" font-size="12" fill="#555">250</text><line x1="146.2" y1="54" x2="146.2" y2="450" stroke="#f1f5f9" /><text x="146.2" y="474" text-anchor="middle" font-size="12" fill="#555">500</text><line x1="226.4" y1="54" x2="226.4" y2="450" stroke="#f1f5f9" /><text x="226.4" y="474" text-anchor="middle" font-size="12" fill="#555">1000</text><line x1="306.6" y1="54" x2="306.6" y2="450" stroke="#f1f5f9" /><text x="306.6" y="474" text-anchor="middle" font-size="12" fill="#555">1500</text><line x1="386.8" y1="54" x2="386.8" y2="450" stroke="#f1f5f9" /><text x="386.8" y="474" text-anchor="middle" font-size="12" fill="#555">2000</text><line x1="547.2" y1="54" x2="547.2" y2="450" stroke="#f1f5f9" /><text x="547.2" y="474" text-anchor="middle" font-size="12" fill="#555">3000</text><line x1="707.6" y1="54" x2="707.6" y2="450" stroke="#f1f5f9" /><text x="707.6" y="474" text-anchor="middle" font-size="12" fill="#555">4000</text><line x1="868.0" y1="54" x2="868.0" y2="450" stroke="#f1f5f9" /><text x="868.0" y="474" text-anchor="middle" font-size="12" fill="#555">5000</text>
+  <line x1="82" y1="54" x2="82" y2="450" stroke="#111"/>
+  <line x1="82" y1="450" x2="868" y2="450" stroke="#111"/>
+  <polyline points="82.0,414.4 106.1,422.7 146.2,422.7 226.4,372.7 306.6,406.0 386.8,364.4 547.2,264.5 707.6,164.6 868.0,81.3" fill="none" stroke="#1f6feb" stroke-width="3"/>
+  <circle cx="82.0" cy="414.4" r="4" fill="#1f6feb" />
+<circle cx="106.1" cy="422.7" r="4" fill="#1f6feb" />
+<circle cx="146.2" cy="422.7" r="4" fill="#1f6feb" />
+<circle cx="226.4" cy="372.7" r="4" fill="#1f6feb" />
+<circle cx="306.6" cy="406.0" r="4" fill="#1f6feb" />
+<circle cx="386.8" cy="364.4" r="4" fill="#1f6feb" />
+<circle cx="547.2" cy="264.5" r="4" fill="#1f6feb" />
+<circle cx="707.6" cy="164.6" r="4" fill="#1f6feb" />
+<circle cx="868.0" cy="81.3" r="4" fill="#1f6feb" />
+  <text x="450.0" y="500" text-anchor="middle" font-size="15" font-family="Arial, sans-serif" fill="#111">Distance (m)</text>
+  <text x="20" y="260.0" text-anchor="middle" font-size="15" font-family="Arial, sans-serif" fill="#111" transform="rotate(-90 20 260.0)">Packet loss</text>
+</svg>

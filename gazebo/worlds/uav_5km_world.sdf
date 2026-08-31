@@ -1,0 +1,6436 @@
+<?xml version='1.0' encoding='utf-8'?>
+<sdf version="1.9">
+  <world name="uav_5km_world">
+    <plugin filename="gz-sim-physics-system" name="gz::sim::systems::Physics" />
+    <plugin filename="gz-sim-user-commands-system" name="gz::sim::systems::UserCommands" />
+    <plugin filename="gz-sim-scene-broadcaster-system" name="gz::sim::systems::SceneBroadcaster" />
+    <plugin filename="gz-sim-imu-system" name="gz::sim::systems::Imu" />
+    <plugin filename="gz-sim-air-pressure-system" name="gz::sim::systems::AirPressure" />
+    <plugin filename="gz-sim-navsat-system" name="gz::sim::systems::NavSat" />
+    <plugin filename="gz-sim-magnetometer-system" name="gz::sim::systems::Magnetometer" />
+    <plugin filename="gz-sim-sensors-system" name="gz::sim::systems::Sensors">
+      <render_engine>ogre2</render_engine>
+    </plugin>
+    <physics type="ode">
+      <max_step_size>0.004</max_step_size>
+      <real_time_factor>1.0</real_time_factor>
+      <real_time_update_rate>250</real_time_update_rate>
+    </physics>
+    <gravity>0 0 -9.8</gravity>
+    <magnetic_field>6e-06 2.3e-05 -4.2e-05</magnetic_field>
+    <atmosphere type="adiabatic" />
+    <scene>
+      <ambient>0.58 0.62 0.66 1</ambient>
+      <background>0.70 0.82 0.92 1</background>
+      <shadows>false</shadows>
+    </scene>
+    <light name="sun" type="directional">
+      <pose>0 0 800 0.7 0.2 0.2</pose>
+      <cast_shadows>false</cast_shadows>
+      <intensity>0.8</intensity>
+      <direction>-0.4 0.2 -0.9</direction>
+    </light>
+    <spherical_coordinates>
+      <surface_model>EARTH_WGS84</surface_model>
+      <world_frame_orientation>ENU</world_frame_orientation>
+      <latitude_deg>47.397971057728974</latitude_deg>
+      <longitude_deg>8.546163739800146</longitude_deg>
+      <elevation>0</elevation>
+    </spherical_coordinates>
+    <model name="base_5km_ground">
+      <static>true</static>
+      <pose>0 0 -0.06 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>5000 5000 0.12</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>5000 5000 0.12</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.18 0.36 0.18 1</ambient>
+            <diffuse>0.18 0.36 0.18 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="north_hill_band">
+      <static>true</static>
+      <pose>0 1700 3 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>5000 1600 6</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.24 0.32 0.20 1</ambient>
+            <diffuse>0.24 0.32 0.20 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="south_agriculture_band">
+      <static>true</static>
+      <pose>0 -1700 0.02 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>5000 1600 0.04</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.38 0.46 0.20 1</ambient>
+            <diffuse>0.38 0.46 0.20 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="east_industrial_band">
+      <static>true</static>
+      <pose>1700 0 0.03 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>1600 1600 0.06</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.29 0.30 0.30 1</ambient>
+            <diffuse>0.29 0.30 0.30 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="west_forest_band">
+      <static>true</static>
+      <pose>-1700 0 0.03 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>1600 1600 0.06</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.08 0.24 0.10 1</ambient>
+            <diffuse>0.08 0.24 0.10 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="low_poly_hill_00">
+      <static>true</static>
+      <pose>-1500 1850 27.3 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>650 430 55</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.26 0.34 0.22 1</ambient>
+            <diffuse>0.26 0.34 0.22 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="low_poly_hill_01">
+      <static>true</static>
+      <pose>-650 2100 47.3 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>800 520 95</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.26 0.34 0.22 1</ambient>
+            <diffuse>0.26 0.34 0.22 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="low_poly_hill_02">
+      <static>true</static>
+      <pose>420 1900 37.3 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>780 500 75</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.26 0.34 0.22 1</ambient>
+            <diffuse>0.26 0.34 0.22 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="low_poly_hill_03">
+      <static>true</static>
+      <pose>1350 2180 59.8 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>900 540 120</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.26 0.34 0.22 1</ambient>
+            <diffuse>0.26 0.34 0.22 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="low_poly_hill_04">
+      <static>true</static>
+      <pose>-2100 1200 20.8 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>620 360 42</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.26 0.34 0.22 1</ambient>
+            <diffuse>0.26 0.34 0.22 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="low_poly_hill_05">
+      <static>true</static>
+      <pose>2100 1250 24.8 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>700 420 50</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.26 0.34 0.22 1</ambient>
+            <diffuse>0.26 0.34 0.22 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="main_east_west_road">
+      <static>true</static>
+      <pose>0 0 0.025 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>5000 24 0.05</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.05 0.05 0.05 1</ambient>
+            <diffuse>0.05 0.05 0.05 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="main_north_south_road">
+      <static>true</static>
+      <pose>0 0 0.025 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>24 5000 0.05</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.05 0.05 0.05 1</ambient>
+            <diffuse>0.05 0.05 0.05 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="industrial_access_road">
+      <static>true</static>
+      <pose>1250 350 0.025 0 0 0.22</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>1900 18 0.05</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.05 0.05 0.05 1</ambient>
+            <diffuse>0.05 0.05 0.05 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_rural_road">
+      <static>true</static>
+      <pose>-1450 -220 0.025 0 0 -0.28</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>1800 14 0.05</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.05 0.05 0.05 1</ambient>
+            <diffuse>0.05 0.05 0.05 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="farm_service_road">
+      <static>true</static>
+      <pose>-450 -1550 0.025 0 0 0.12</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>2600 12 0.05</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.05 0.05 0.05 1</ambient>
+            <diffuse>0.05 0.05 0.05 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="hill_pass_road">
+      <static>true</static>
+      <pose>550 1420 0.025 0 0 -0.2</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>2200 12 0.05</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.05 0.05 0.05 1</ambient>
+            <diffuse>0.05 0.05 0.05 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="uav_base_pad">
+      <static>true</static>
+      <pose>0 0 0.08 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>90 70 0.16</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.12 0.12 0.13 1</ambient>
+            <diffuse>0.12 0.12 0.13 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="uav_base_marking_x">
+      <static>true</static>
+      <pose>0 0 0.18 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>70 4 0.05</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.95 0.95 0.75 1</ambient>
+            <diffuse>0.95 0.95 0.75 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="uav_base_marking_y">
+      <static>true</static>
+      <pose>0 0 0.19 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>4 50 0.05</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.95 0.95 0.75 1</ambient>
+            <diffuse>0.95 0.95 0.75 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="urban_low_poly_building_00">
+      <static>true</static>
+      <pose>-471.1 -351.4 7.0 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>42 24 14</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>42 24 14</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.62 0.57 0.50 1</ambient>
+            <diffuse>0.62 0.57 0.50 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="urban_low_poly_building_01">
+      <static>true</static>
+      <pose>-468.4 -250.8 12.0 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>28 38 24</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>28 38 24</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.52 0.55 0.58 1</ambient>
+            <diffuse>0.52 0.55 0.58 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="urban_low_poly_building_02">
+      <static>true</static>
+      <pose>-488.2 -176.8 7.0 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>28 38 14</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>28 38 14</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.68 0.66 0.60 1</ambient>
+            <diffuse>0.68 0.66 0.60 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="urban_low_poly_building_03">
+      <static>true</static>
+      <pose>-482.8 -82.9 12.0 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>28 24 24</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>28 24 24</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.48 0.50 0.54 1</ambient>
+            <diffuse>0.48 0.50 0.54 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="urban_low_poly_building_04">
+      <static>true</static>
+      <pose>-481.2 -6.8 5.0 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>42 24 10</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>42 24 10</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.68 0.66 0.60 1</ambient>
+            <diffuse>0.68 0.66 0.60 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="urban_low_poly_building_05">
+      <static>true</static>
+      <pose>-486.3 93.3 12.0 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>42 24 24</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>42 24 24</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.52 0.55 0.58 1</ambient>
+            <diffuse>0.52 0.55 0.58 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="urban_low_poly_building_06">
+      <static>true</static>
+      <pose>-461.8 167.1 16.0 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>42 38 32</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>42 38 32</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.48 0.50 0.54 1</ambient>
+            <diffuse>0.48 0.50 0.54 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="urban_low_poly_building_07">
+      <static>true</static>
+      <pose>-472.8 259.9 7.0 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>28 38 14</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>28 38 14</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.48 0.50 0.54 1</ambient>
+            <diffuse>0.48 0.50 0.54 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="urban_low_poly_building_08">
+      <static>true</static>
+      <pose>-461.4 348.5 9.0 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>28 32 18</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>28 32 18</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.68 0.66 0.60 1</ambient>
+            <diffuse>0.68 0.66 0.60 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="urban_low_poly_building_09">
+      <static>true</static>
+      <pose>-376.2 -343.2 7.0 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>42 32 14</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>42 32 14</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.48 0.50 0.54 1</ambient>
+            <diffuse>0.48 0.50 0.54 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="urban_low_poly_building_10">
+      <static>true</static>
+      <pose>-374.3 -250.6 7.0 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>28 38 14</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>28 38 14</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.62 0.57 0.50 1</ambient>
+            <diffuse>0.62 0.57 0.50 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="urban_low_poly_building_11">
+      <static>true</static>
+      <pose>-389.4 -172.9 9.0 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>34 38 18</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>34 38 18</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.52 0.55 0.58 1</ambient>
+            <diffuse>0.52 0.55 0.58 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="urban_low_poly_building_12">
+      <static>true</static>
+      <pose>-387.6 -96.2 9.0 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>42 32 18</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>42 32 18</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.52 0.55 0.58 1</ambient>
+            <diffuse>0.52 0.55 0.58 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="urban_low_poly_building_13">
+      <static>true</static>
+      <pose>-388.1 10.6 12.0 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>42 24 24</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>42 24 24</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.68 0.66 0.60 1</ambient>
+            <diffuse>0.68 0.66 0.60 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="urban_low_poly_building_14">
+      <static>true</static>
+      <pose>-369.2 88.4 7.0 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>34 32 14</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>34 32 14</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.62 0.57 0.50 1</ambient>
+            <diffuse>0.62 0.57 0.50 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="urban_low_poly_building_15">
+      <static>true</static>
+      <pose>-373.1 170.9 12.0 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>50 38 24</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>50 38 24</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.48 0.50 0.54 1</ambient>
+            <diffuse>0.48 0.50 0.54 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="urban_low_poly_building_16">
+      <static>true</static>
+      <pose>-387.9 266.9 5.0 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>50 24 10</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>50 24 10</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.52 0.55 0.58 1</ambient>
+            <diffuse>0.52 0.55 0.58 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="urban_low_poly_building_17">
+      <static>true</static>
+      <pose>-389.7 331.8 5.0 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>50 38 10</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>50 38 10</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.68 0.66 0.60 1</ambient>
+            <diffuse>0.68 0.66 0.60 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="urban_low_poly_building_18">
+      <static>true</static>
+      <pose>-288.3 -328.1 5.0 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>42 38 10</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>42 38 10</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.52 0.55 0.58 1</ambient>
+            <diffuse>0.52 0.55 0.58 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="urban_low_poly_building_19">
+      <static>true</static>
+      <pose>-279.9 -254.1 9.0 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>42 38 18</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>42 38 18</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.52 0.55 0.58 1</ambient>
+            <diffuse>0.52 0.55 0.58 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="urban_low_poly_building_20">
+      <static>true</static>
+      <pose>-290.8 -178.2 9.0 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>28 38 18</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>28 38 18</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.62 0.57 0.50 1</ambient>
+            <diffuse>0.62 0.57 0.50 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="urban_low_poly_building_21">
+      <static>true</static>
+      <pose>-284.8 -94.4 16.0 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>42 38 32</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>42 38 32</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.62 0.57 0.50 1</ambient>
+            <diffuse>0.62 0.57 0.50 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="urban_low_poly_building_22">
+      <static>true</static>
+      <pose>-294.7 6.3 9.0 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>28 38 18</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>28 38 18</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.68 0.66 0.60 1</ambient>
+            <diffuse>0.68 0.66 0.60 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="urban_low_poly_building_23">
+      <static>true</static>
+      <pose>-298.5 95.3 5.0 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>42 24 10</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>42 24 10</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.62 0.57 0.50 1</ambient>
+            <diffuse>0.62 0.57 0.50 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="urban_low_poly_building_24">
+      <static>true</static>
+      <pose>-274.4 180.7 12.0 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>28 38 24</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>28 38 24</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.52 0.55 0.58 1</ambient>
+            <diffuse>0.52 0.55 0.58 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="urban_low_poly_building_25">
+      <static>true</static>
+      <pose>-271.6 255.8 12.0 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>34 24 24</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>34 24 24</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.62 0.57 0.50 1</ambient>
+            <diffuse>0.62 0.57 0.50 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="urban_low_poly_building_26">
+      <static>true</static>
+      <pose>-291.6 348.9 16.0 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>50 24 32</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>50 24 32</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.62 0.57 0.50 1</ambient>
+            <diffuse>0.62 0.57 0.50 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="urban_low_poly_building_27">
+      <static>true</static>
+      <pose>-184.0 -342.4 16.0 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>42 32 32</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>42 32 32</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.68 0.66 0.60 1</ambient>
+            <diffuse>0.68 0.66 0.60 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="urban_low_poly_building_28">
+      <static>true</static>
+      <pose>-200.6 -261.6 16.0 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>42 24 32</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>42 24 32</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.62 0.57 0.50 1</ambient>
+            <diffuse>0.62 0.57 0.50 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="urban_low_poly_building_29">
+      <static>true</static>
+      <pose>-187.5 -181.8 5.0 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>28 24 10</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>28 24 10</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.52 0.55 0.58 1</ambient>
+            <diffuse>0.52 0.55 0.58 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="urban_low_poly_building_30">
+      <static>true</static>
+      <pose>-179.9 -95.3 12.0 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>34 32 24</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>34 32 24</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.62 0.57 0.50 1</ambient>
+            <diffuse>0.62 0.57 0.50 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="urban_low_poly_building_31">
+      <static>true</static>
+      <pose>-188.9 5.4 12.0 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>50 24 24</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>50 24 24</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.68 0.66 0.60 1</ambient>
+            <diffuse>0.68 0.66 0.60 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="urban_low_poly_building_32">
+      <static>true</static>
+      <pose>-198.7 75.3 12.0 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>50 32 24</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>50 32 24</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.68 0.66 0.60 1</ambient>
+            <diffuse>0.68 0.66 0.60 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="urban_low_poly_building_33">
+      <static>true</static>
+      <pose>-190.9 175.5 12.0 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>28 24 24</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>28 24 24</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.48 0.50 0.54 1</ambient>
+            <diffuse>0.48 0.50 0.54 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="urban_low_poly_building_34">
+      <static>true</static>
+      <pose>-181.6 245.6 16.0 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>34 24 32</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>34 24 32</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.68 0.66 0.60 1</ambient>
+            <diffuse>0.68 0.66 0.60 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="urban_low_poly_building_35">
+      <static>true</static>
+      <pose>-200.1 332.4 5.0 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>50 24 10</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>50 24 10</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.68 0.66 0.60 1</ambient>
+            <diffuse>0.68 0.66 0.60 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="urban_low_poly_building_36">
+      <static>true</static>
+      <pose>-86.4 -331.5 16.0 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>28 24 32</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>28 24 32</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.52 0.55 0.58 1</ambient>
+            <diffuse>0.52 0.55 0.58 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="urban_low_poly_building_37">
+      <static>true</static>
+      <pose>-81.9 -244.8 12.0 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>34 24 24</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>34 24 24</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.68 0.66 0.60 1</ambient>
+            <diffuse>0.68 0.66 0.60 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="urban_low_poly_building_38">
+      <static>true</static>
+      <pose>-95.5 -161.2 12.0 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>28 24 24</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>28 24 24</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.52 0.55 0.58 1</ambient>
+            <diffuse>0.52 0.55 0.58 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="urban_low_poly_building_39">
+      <static>true</static>
+      <pose>-81.4 -90.6 12.0 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>50 32 24</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>50 32 24</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.68 0.66 0.60 1</ambient>
+            <diffuse>0.68 0.66 0.60 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="urban_low_poly_building_40">
+      <static>true</static>
+      <pose>-104.7 -4.9 16.0 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>28 38 32</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>28 38 32</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.52 0.55 0.58 1</ambient>
+            <diffuse>0.52 0.55 0.58 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="urban_low_poly_building_41">
+      <static>true</static>
+      <pose>-88.1 74.4 16.0 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>50 38 32</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>50 38 32</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.62 0.57 0.50 1</ambient>
+            <diffuse>0.62 0.57 0.50 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="urban_low_poly_building_42">
+      <static>true</static>
+      <pose>-107.4 170.2 16.0 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>34 24 32</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>34 24 32</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.52 0.55 0.58 1</ambient>
+            <diffuse>0.52 0.55 0.58 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="urban_low_poly_building_43">
+      <static>true</static>
+      <pose>-90.1 248.6 7.0 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>28 38 14</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>28 38 14</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.52 0.55 0.58 1</ambient>
+            <diffuse>0.52 0.55 0.58 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="urban_low_poly_building_44">
+      <static>true</static>
+      <pose>-91.7 338.1 7.0 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>42 32 14</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>42 32 14</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.48 0.50 0.54 1</ambient>
+            <diffuse>0.48 0.50 0.54 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="urban_low_poly_building_45">
+      <static>true</static>
+      <pose>-7.3 -342.5 9.0 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>42 32 18</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>42 32 18</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.52 0.55 0.58 1</ambient>
+            <diffuse>0.52 0.55 0.58 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="urban_low_poly_building_46">
+      <static>true</static>
+      <pose>-13.7 -252.1 16.0 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>28 24 32</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>28 24 32</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.62 0.57 0.50 1</ambient>
+            <diffuse>0.62 0.57 0.50 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="urban_low_poly_building_47">
+      <static>true</static>
+      <pose>0.2 -178.8 7.0 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>42 24 14</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>42 24 14</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.48 0.50 0.54 1</ambient>
+            <diffuse>0.48 0.50 0.54 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="urban_low_poly_building_48">
+      <static>true</static>
+      <pose>-6.0 -86.5 16.0 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>42 38 32</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>42 38 32</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.52 0.55 0.58 1</ambient>
+            <diffuse>0.52 0.55 0.58 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="urban_low_poly_building_49">
+      <static>true</static>
+      <pose>12.1 75.5 5.0 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>34 32 10</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>34 32 10</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.52 0.55 0.58 1</ambient>
+            <diffuse>0.52 0.55 0.58 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="urban_low_poly_building_50">
+      <static>true</static>
+      <pose>6.8 161.7 7.0 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>42 38 14</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>42 38 14</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.48 0.50 0.54 1</ambient>
+            <diffuse>0.48 0.50 0.54 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="urban_low_poly_building_51">
+      <static>true</static>
+      <pose>-8.3 258.2 12.0 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>42 38 24</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>42 38 24</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.48 0.50 0.54 1</ambient>
+            <diffuse>0.48 0.50 0.54 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="urban_low_poly_building_52">
+      <static>true</static>
+      <pose>11.3 348.3 12.0 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>28 38 24</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>28 38 24</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.48 0.50 0.54 1</ambient>
+            <diffuse>0.48 0.50 0.54 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="urban_low_poly_building_53">
+      <static>true</static>
+      <pose>82.2 -344.0 9.0 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>34 38 18</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>34 38 18</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.62 0.57 0.50 1</ambient>
+            <diffuse>0.62 0.57 0.50 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="urban_low_poly_building_54">
+      <static>true</static>
+      <pose>101.8 -253.8 5.0 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>50 38 10</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>50 38 10</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.52 0.55 0.58 1</ambient>
+            <diffuse>0.52 0.55 0.58 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="urban_low_poly_building_55">
+      <static>true</static>
+      <pose>83.1 -160.8 5.0 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>34 38 10</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>34 38 10</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.48 0.50 0.54 1</ambient>
+            <diffuse>0.48 0.50 0.54 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="urban_low_poly_building_56">
+      <static>true</static>
+      <pose>97.3 -93.4 9.0 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>34 24 18</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>34 24 18</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.48 0.50 0.54 1</ambient>
+            <diffuse>0.48 0.50 0.54 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="urban_low_poly_building_57">
+      <static>true</static>
+      <pose>106.2 7.1 7.0 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>28 32 14</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>28 32 14</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.62 0.57 0.50 1</ambient>
+            <diffuse>0.62 0.57 0.50 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="urban_low_poly_building_58">
+      <static>true</static>
+      <pose>99.7 81.5 7.0 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>50 38 14</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>50 38 14</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.62 0.57 0.50 1</ambient>
+            <diffuse>0.62 0.57 0.50 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="urban_low_poly_building_59">
+      <static>true</static>
+      <pose>105.2 181.4 5.0 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>34 32 10</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>34 32 10</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.62 0.57 0.50 1</ambient>
+            <diffuse>0.62 0.57 0.50 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="urban_low_poly_building_60">
+      <static>true</static>
+      <pose>101.6 251.0 7.0 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>50 38 14</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>50 38 14</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.48 0.50 0.54 1</ambient>
+            <diffuse>0.48 0.50 0.54 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="urban_low_poly_building_61">
+      <static>true</static>
+      <pose>85.5 344.8 12.0 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>50 24 24</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>50 24 24</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.62 0.57 0.50 1</ambient>
+            <diffuse>0.62 0.57 0.50 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="urban_low_poly_building_62">
+      <static>true</static>
+      <pose>181.6 -330.0 7.0 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>42 32 14</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>42 32 14</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.62 0.57 0.50 1</ambient>
+            <diffuse>0.62 0.57 0.50 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="urban_low_poly_building_63">
+      <static>true</static>
+      <pose>176.7 -262.4 5.0 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>42 32 10</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>42 32 10</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.48 0.50 0.54 1</ambient>
+            <diffuse>0.48 0.50 0.54 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="urban_low_poly_building_64">
+      <static>true</static>
+      <pose>185.8 -169.8 5.0 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>42 24 10</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>42 24 10</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.48 0.50 0.54 1</ambient>
+            <diffuse>0.48 0.50 0.54 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="urban_low_poly_building_65">
+      <static>true</static>
+      <pose>181.0 -73.9 5.0 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>42 24 10</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>42 24 10</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.68 0.66 0.60 1</ambient>
+            <diffuse>0.68 0.66 0.60 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="urban_low_poly_building_66">
+      <static>true</static>
+      <pose>185.7 6.9 16.0 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>50 38 32</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>50 38 32</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.52 0.55 0.58 1</ambient>
+            <diffuse>0.52 0.55 0.58 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="urban_low_poly_building_67">
+      <static>true</static>
+      <pose>186.8 86.8 12.0 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>42 24 24</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>42 24 24</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.52 0.55 0.58 1</ambient>
+            <diffuse>0.52 0.55 0.58 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="east_warehouse_00">
+      <static>true</static>
+      <pose>1625.9 469.4 8.0 0 0 -0.17</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>90 60 16</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>90 60 16</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.42 0.43 0.42 1</ambient>
+            <diffuse>0.42 0.43 0.42 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="east_warehouse_01">
+      <static>true</static>
+      <pose>1813.5 -221.2 6.0 0 0 0.09</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>120 75 12</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>120 75 12</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.42 0.43 0.42 1</ambient>
+            <diffuse>0.42 0.43 0.42 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="east_warehouse_02">
+      <static>true</static>
+      <pose>1340.4 -251.5 8.0 0 0 0.08</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>150 60 16</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>150 60 16</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.42 0.43 0.42 1</ambient>
+            <diffuse>0.42 0.43 0.42 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="east_warehouse_03">
+      <static>true</static>
+      <pose>1670.7 -421.8 10.0 0 0 0.16</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>150 75 20</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>150 75 20</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.42 0.43 0.42 1</ambient>
+            <diffuse>0.42 0.43 0.42 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="east_warehouse_04">
+      <static>true</static>
+      <pose>1750.2 -263.6 8.0 0 0 -0.12</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>70 60 16</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>70 60 16</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.42 0.43 0.42 1</ambient>
+            <diffuse>0.42 0.43 0.42 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="east_warehouse_05">
+      <static>true</static>
+      <pose>1971.5 179.7 8.0 0 0 -0.02</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>120 60 16</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>120 60 16</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.42 0.43 0.42 1</ambient>
+            <diffuse>0.42 0.43 0.42 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="east_warehouse_06">
+      <static>true</static>
+      <pose>1227.8 -13.9 6.0 0 0 -0.09</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>90 75 12</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>90 75 12</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.42 0.43 0.42 1</ambient>
+            <diffuse>0.42 0.43 0.42 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="east_warehouse_07">
+      <static>true</static>
+      <pose>1813.0 197.9 10.0 0 0 -0.08</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>70 45 20</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>70 45 20</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.42 0.43 0.42 1</ambient>
+            <diffuse>0.42 0.43 0.42 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="east_warehouse_08">
+      <static>true</static>
+      <pose>1998.5 -486.3 8.0 0 0 0.04</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>70 45 16</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>70 45 16</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.42 0.43 0.42 1</ambient>
+            <diffuse>0.42 0.43 0.42 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="east_warehouse_09">
+      <static>true</static>
+      <pose>1949.0 -39.6 10.0 0 0 -0.05</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>90 75 20</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>90 75 20</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.42 0.43 0.42 1</ambient>
+            <diffuse>0.42 0.43 0.42 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="east_warehouse_10">
+      <static>true</static>
+      <pose>1469.5 -486.0 8.0 0 0 -0.11</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>70 45 16</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>70 45 16</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.42 0.43 0.42 1</ambient>
+            <diffuse>0.42 0.43 0.42 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="east_warehouse_11">
+      <static>true</static>
+      <pose>1995.3 309.1 10.0 0 0 -0.10</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>150 45 20</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>150 45 20</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.42 0.43 0.42 1</ambient>
+            <diffuse>0.42 0.43 0.42 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="east_warehouse_12">
+      <static>true</static>
+      <pose>2052.8 -38.1 10.0 0 0 0.20</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>150 75 20</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>150 75 20</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.42 0.43 0.42 1</ambient>
+            <diffuse>0.42 0.43 0.42 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="east_warehouse_13">
+      <static>true</static>
+      <pose>1724.1 677.6 10.0 0 0 0.16</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>150 75 20</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>150 75 20</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.42 0.43 0.42 1</ambient>
+            <diffuse>0.42 0.43 0.42 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="west_rural_house_00">
+      <static>true</static>
+      <pose>-1623.9 718.4 4 0 0 -0.05</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>24 18 8</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>24 18 8</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.55 0.40 0.30 1</ambient>
+            <diffuse>0.55 0.40 0.30 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="west_rural_house_01">
+      <static>true</static>
+      <pose>-1985.1 629.9 4 0 0 -0.05</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>24 18 8</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>24 18 8</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.55 0.40 0.30 1</ambient>
+            <diffuse>0.55 0.40 0.30 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="west_rural_house_02">
+      <static>true</static>
+      <pose>-1185.1 587.7 4 0 0 -0.22</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>24 18 8</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>24 18 8</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.55 0.40 0.30 1</ambient>
+            <diffuse>0.55 0.40 0.30 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="west_rural_house_03">
+      <static>true</static>
+      <pose>-1150.1 -105.0 4 0 0 -0.26</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>24 18 8</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>24 18 8</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.55 0.40 0.30 1</ambient>
+            <diffuse>0.55 0.40 0.30 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="west_rural_house_04">
+      <static>true</static>
+      <pose>-1606.2 341.4 4 0 0 -0.27</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>24 18 8</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>24 18 8</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.55 0.40 0.30 1</ambient>
+            <diffuse>0.55 0.40 0.30 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="west_rural_house_05">
+      <static>true</static>
+      <pose>-1746.6 691.4 4 0 0 -0.42</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>24 18 8</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>24 18 8</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.55 0.40 0.30 1</ambient>
+            <diffuse>0.55 0.40 0.30 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="west_rural_house_06">
+      <static>true</static>
+      <pose>-1996.4 -303.1 4 0 0 -0.35</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>24 18 8</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>24 18 8</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.55 0.40 0.30 1</ambient>
+            <diffuse>0.55 0.40 0.30 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="west_rural_house_07">
+      <static>true</static>
+      <pose>-1911.2 -241.0 4 0 0 -0.17</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>24 18 8</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>24 18 8</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.55 0.40 0.30 1</ambient>
+            <diffuse>0.55 0.40 0.30 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="west_rural_house_08">
+      <static>true</static>
+      <pose>-1571.0 -928.6 4 0 0 0.33</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>24 18 8</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>24 18 8</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.55 0.40 0.30 1</ambient>
+            <diffuse>0.55 0.40 0.30 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="west_rural_house_09">
+      <static>true</static>
+      <pose>-1674.2 451.1 4 0 0 0.45</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>24 18 8</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>24 18 8</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.55 0.40 0.30 1</ambient>
+            <diffuse>0.55 0.40 0.30 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="west_rural_house_10">
+      <static>true</static>
+      <pose>-2173.6 667.3 4 0 0 0.08</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>24 18 8</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>24 18 8</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.55 0.40 0.30 1</ambient>
+            <diffuse>0.55 0.40 0.30 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="west_rural_house_11">
+      <static>true</static>
+      <pose>-1556.1 788.3 4 0 0 -0.20</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>24 18 8</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>24 18 8</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.55 0.40 0.30 1</ambient>
+            <diffuse>0.55 0.40 0.30 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="west_rural_house_12">
+      <static>true</static>
+      <pose>-1673.5 688.7 4 0 0 0.34</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>24 18 8</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>24 18 8</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.55 0.40 0.30 1</ambient>
+            <diffuse>0.55 0.40 0.30 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="west_rural_house_13">
+      <static>true</static>
+      <pose>-1473.4 382.5 4 0 0 0.30</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>24 18 8</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>24 18 8</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.55 0.40 0.30 1</ambient>
+            <diffuse>0.55 0.40 0.30 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="west_rural_house_14">
+      <static>true</static>
+      <pose>-988.0 -98.0 4 0 0 -0.23</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>24 18 8</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>24 18 8</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.55 0.40 0.30 1</ambient>
+            <diffuse>0.55 0.40 0.30 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="west_rural_house_15">
+      <static>true</static>
+      <pose>-1544.4 -291.7 4 0 0 0.17</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>24 18 8</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>24 18 8</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.55 0.40 0.30 1</ambient>
+            <diffuse>0.55 0.40 0.30 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="south_field_00">
+      <static>true</static>
+      <pose>-2100 -1750 0.04 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>230 520 0.05</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.30 0.44 0.18 1</ambient>
+            <diffuse>0.30 0.44 0.18 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="south_field_01">
+      <static>true</static>
+      <pose>-1815 -1750 0.04 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>230 520 0.05</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.54 0.46 0.22 1</ambient>
+            <diffuse>0.54 0.46 0.22 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="south_field_02">
+      <static>true</static>
+      <pose>-1530 -1750 0.04 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>230 520 0.05</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.44 0.50 0.19 1</ambient>
+            <diffuse>0.44 0.50 0.19 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="south_field_03">
+      <static>true</static>
+      <pose>-1245 -1750 0.04 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>230 520 0.05</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.30 0.44 0.18 1</ambient>
+            <diffuse>0.30 0.44 0.18 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="south_field_04">
+      <static>true</static>
+      <pose>-960 -1750 0.04 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>230 520 0.05</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.44 0.50 0.19 1</ambient>
+            <diffuse>0.44 0.50 0.19 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="south_field_05">
+      <static>true</static>
+      <pose>-675 -1750 0.04 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>230 520 0.05</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.54 0.46 0.22 1</ambient>
+            <diffuse>0.54 0.46 0.22 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="south_field_06">
+      <static>true</static>
+      <pose>-390 -1750 0.04 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>230 520 0.05</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.54 0.46 0.22 1</ambient>
+            <diffuse>0.54 0.46 0.22 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="south_field_07">
+      <static>true</static>
+      <pose>-105 -1750 0.04 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>230 520 0.05</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.44 0.50 0.19 1</ambient>
+            <diffuse>0.44 0.50 0.19 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="south_field_08">
+      <static>true</static>
+      <pose>180 -1750 0.04 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>230 520 0.05</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.30 0.44 0.18 1</ambient>
+            <diffuse>0.30 0.44 0.18 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="south_field_09">
+      <static>true</static>
+      <pose>465 -1750 0.04 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>230 520 0.05</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.54 0.46 0.22 1</ambient>
+            <diffuse>0.54 0.46 0.22 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="south_field_10">
+      <static>true</static>
+      <pose>750 -1750 0.04 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>230 520 0.05</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.54 0.46 0.22 1</ambient>
+            <diffuse>0.54 0.46 0.22 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="south_field_11">
+      <static>true</static>
+      <pose>1035 -1750 0.04 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>230 520 0.05</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.54 0.46 0.22 1</ambient>
+            <diffuse>0.54 0.46 0.22 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="south_field_12">
+      <static>true</static>
+      <pose>1320 -1750 0.04 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>230 520 0.05</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.44 0.50 0.19 1</ambient>
+            <diffuse>0.44 0.50 0.19 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="south_field_13">
+      <static>true</static>
+      <pose>1605 -1750 0.04 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>230 520 0.05</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.44 0.50 0.19 1</ambient>
+            <diffuse>0.44 0.50 0.19 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_00_trunk">
+      <static>true</static>
+      <pose>-1435.8755279859963 -894.6761537312304 3 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.7</radius>
+              <length>6</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.22 0.12 0.06 1</ambient>
+            <diffuse>0.22 0.12 0.06 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_00_canopy">
+      <static>true</static>
+      <pose>-1435.8755279859963 -894.6761537312304 9 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>4.0</radius>
+              <length>7</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.03 0.28 0.08 1</ambient>
+            <diffuse>0.03 0.28 0.08 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_01_trunk">
+      <static>true</static>
+      <pose>-1707.4523339227326 -1086.859574650588 3 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.7</radius>
+              <length>6</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.22 0.12 0.06 1</ambient>
+            <diffuse>0.22 0.12 0.06 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_01_canopy">
+      <static>true</static>
+      <pose>-1707.4523339227326 -1086.859574650588 9 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>4.0</radius>
+              <length>7</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.03 0.28 0.08 1</ambient>
+            <diffuse>0.03 0.28 0.08 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_02_trunk">
+      <static>true</static>
+      <pose>-1831.3442037177906 -723.7643605241665 3 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.7</radius>
+              <length>6</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.22 0.12 0.06 1</ambient>
+            <diffuse>0.22 0.12 0.06 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_02_canopy">
+      <static>true</static>
+      <pose>-1831.3442037177906 -723.7643605241665 9 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>4.0</radius>
+              <length>7</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.03 0.28 0.08 1</ambient>
+            <diffuse>0.03 0.28 0.08 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_03_trunk">
+      <static>true</static>
+      <pose>-1909.731292678037 512.7668427615611 3 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.7</radius>
+              <length>6</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.22 0.12 0.06 1</ambient>
+            <diffuse>0.22 0.12 0.06 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_03_canopy">
+      <static>true</static>
+      <pose>-1909.731292678037 512.7668427615611 9 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>4.0</radius>
+              <length>7</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.03 0.28 0.08 1</ambient>
+            <diffuse>0.03 0.28 0.08 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_04_trunk">
+      <static>true</static>
+      <pose>-1831.3106766537956 492.02210299826584 3 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.7</radius>
+              <length>6</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.22 0.12 0.06 1</ambient>
+            <diffuse>0.22 0.12 0.06 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_04_canopy">
+      <static>true</static>
+      <pose>-1831.3106766537956 492.02210299826584 9 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>4.0</radius>
+              <length>7</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.03 0.28 0.08 1</ambient>
+            <diffuse>0.03 0.28 0.08 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_05_trunk">
+      <static>true</static>
+      <pose>-1152.113572267091 -632.3890534896436 3 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.7</radius>
+              <length>6</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.22 0.12 0.06 1</ambient>
+            <diffuse>0.22 0.12 0.06 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_05_canopy">
+      <static>true</static>
+      <pose>-1152.113572267091 -632.3890534896436 9 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>4.0</radius>
+              <length>7</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.03 0.28 0.08 1</ambient>
+            <diffuse>0.03 0.28 0.08 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_06_trunk">
+      <static>true</static>
+      <pose>-2277.140650857536 -1156.387604137476 3 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.7</radius>
+              <length>6</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.22 0.12 0.06 1</ambient>
+            <diffuse>0.22 0.12 0.06 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_06_canopy">
+      <static>true</static>
+      <pose>-2277.140650857536 -1156.387604137476 9 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>4.0</radius>
+              <length>7</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.03 0.28 0.08 1</ambient>
+            <diffuse>0.03 0.28 0.08 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_07_trunk">
+      <static>true</static>
+      <pose>-1590.8714281161995 1049.7926141457206 3 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.7</radius>
+              <length>6</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.22 0.12 0.06 1</ambient>
+            <diffuse>0.22 0.12 0.06 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_07_canopy">
+      <static>true</static>
+      <pose>-1590.8714281161995 1049.7926141457206 9 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>4.0</radius>
+              <length>7</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.03 0.28 0.08 1</ambient>
+            <diffuse>0.03 0.28 0.08 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_08_trunk">
+      <static>true</static>
+      <pose>-1875.059484419724 262.82420981221867 3 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.7</radius>
+              <length>6</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.22 0.12 0.06 1</ambient>
+            <diffuse>0.22 0.12 0.06 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_08_canopy">
+      <static>true</static>
+      <pose>-1875.059484419724 262.82420981221867 9 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>4.0</radius>
+              <length>7</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.03 0.28 0.08 1</ambient>
+            <diffuse>0.03 0.28 0.08 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_09_trunk">
+      <static>true</static>
+      <pose>-1228.1504255836576 266.4479742987512 3 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.7</radius>
+              <length>6</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.22 0.12 0.06 1</ambient>
+            <diffuse>0.22 0.12 0.06 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_09_canopy">
+      <static>true</static>
+      <pose>-1228.1504255836576 266.4479742987512 9 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>4.0</radius>
+              <length>7</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.03 0.28 0.08 1</ambient>
+            <diffuse>0.03 0.28 0.08 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_10_trunk">
+      <static>true</static>
+      <pose>-1268.6501939107106 936.6263986109748 3 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.7</radius>
+              <length>6</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.22 0.12 0.06 1</ambient>
+            <diffuse>0.22 0.12 0.06 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_10_canopy">
+      <static>true</static>
+      <pose>-1268.6501939107106 936.6263986109748 9 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>4.0</radius>
+              <length>7</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.03 0.28 0.08 1</ambient>
+            <diffuse>0.03 0.28 0.08 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_11_trunk">
+      <static>true</static>
+      <pose>-2100.9589764562006 -1154.1449610292523 3 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.7</radius>
+              <length>6</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.22 0.12 0.06 1</ambient>
+            <diffuse>0.22 0.12 0.06 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_11_canopy">
+      <static>true</static>
+      <pose>-2100.9589764562006 -1154.1449610292523 9 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>4.0</radius>
+              <length>7</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.03 0.28 0.08 1</ambient>
+            <diffuse>0.03 0.28 0.08 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_12_trunk">
+      <static>true</static>
+      <pose>-2171.4264813228147 -916.0028065330359 3 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.7</radius>
+              <length>6</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.22 0.12 0.06 1</ambient>
+            <diffuse>0.22 0.12 0.06 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_12_canopy">
+      <static>true</static>
+      <pose>-2171.4264813228147 -916.0028065330359 9 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>4.0</radius>
+              <length>7</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.03 0.28 0.08 1</ambient>
+            <diffuse>0.03 0.28 0.08 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_13_trunk">
+      <static>true</static>
+      <pose>-1395.8117330701339 68.9315593425431 3 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.7</radius>
+              <length>6</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.22 0.12 0.06 1</ambient>
+            <diffuse>0.22 0.12 0.06 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_13_canopy">
+      <static>true</static>
+      <pose>-1395.8117330701339 68.9315593425431 9 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>4.0</radius>
+              <length>7</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.03 0.28 0.08 1</ambient>
+            <diffuse>0.03 0.28 0.08 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_14_trunk">
+      <static>true</static>
+      <pose>-2073.0531886402446 373.79618530383937 3 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.7</radius>
+              <length>6</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.22 0.12 0.06 1</ambient>
+            <diffuse>0.22 0.12 0.06 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_14_canopy">
+      <static>true</static>
+      <pose>-2073.0531886402446 373.79618530383937 9 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>4.0</radius>
+              <length>7</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.03 0.28 0.08 1</ambient>
+            <diffuse>0.03 0.28 0.08 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_15_trunk">
+      <static>true</static>
+      <pose>-1249.6528524656387 -822.4744274224449 3 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.7</radius>
+              <length>6</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.22 0.12 0.06 1</ambient>
+            <diffuse>0.22 0.12 0.06 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_15_canopy">
+      <static>true</static>
+      <pose>-1249.6528524656387 -822.4744274224449 9 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>4.0</radius>
+              <length>7</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.03 0.28 0.08 1</ambient>
+            <diffuse>0.03 0.28 0.08 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_16_trunk">
+      <static>true</static>
+      <pose>-1489.1287591636024 482.83271689939306 3 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.7</radius>
+              <length>6</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.22 0.12 0.06 1</ambient>
+            <diffuse>0.22 0.12 0.06 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_16_canopy">
+      <static>true</static>
+      <pose>-1489.1287591636024 482.83271689939306 9 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>4.0</radius>
+              <length>7</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.03 0.28 0.08 1</ambient>
+            <diffuse>0.03 0.28 0.08 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_17_trunk">
+      <static>true</static>
+      <pose>-2228.2006929316535 643.4276421999414 3 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.7</radius>
+              <length>6</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.22 0.12 0.06 1</ambient>
+            <diffuse>0.22 0.12 0.06 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_17_canopy">
+      <static>true</static>
+      <pose>-2228.2006929316535 643.4276421999414 9 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>4.0</radius>
+              <length>7</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.03 0.28 0.08 1</ambient>
+            <diffuse>0.03 0.28 0.08 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_18_trunk">
+      <static>true</static>
+      <pose>-952.9188404488684 -956.7778132703852 3 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.7</radius>
+              <length>6</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.22 0.12 0.06 1</ambient>
+            <diffuse>0.22 0.12 0.06 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_18_canopy">
+      <static>true</static>
+      <pose>-952.9188404488684 -956.7778132703852 9 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>4.0</radius>
+              <length>7</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.03 0.28 0.08 1</ambient>
+            <diffuse>0.03 0.28 0.08 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_19_trunk">
+      <static>true</static>
+      <pose>-2361.482361753801 -498.0962001119358 3 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.7</radius>
+              <length>6</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.22 0.12 0.06 1</ambient>
+            <diffuse>0.22 0.12 0.06 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_19_canopy">
+      <static>true</static>
+      <pose>-2361.482361753801 -498.0962001119358 9 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>4.0</radius>
+              <length>7</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.03 0.28 0.08 1</ambient>
+            <diffuse>0.03 0.28 0.08 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_20_trunk">
+      <static>true</static>
+      <pose>-1383.9790697243868 955.8888859632657 3 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.7</radius>
+              <length>6</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.22 0.12 0.06 1</ambient>
+            <diffuse>0.22 0.12 0.06 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_20_canopy">
+      <static>true</static>
+      <pose>-1383.9790697243868 955.8888859632657 9 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>4.0</radius>
+              <length>7</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.03 0.28 0.08 1</ambient>
+            <diffuse>0.03 0.28 0.08 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_21_trunk">
+      <static>true</static>
+      <pose>-1805.0183377250592 408.78308636130396 3 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.7</radius>
+              <length>6</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.22 0.12 0.06 1</ambient>
+            <diffuse>0.22 0.12 0.06 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_21_canopy">
+      <static>true</static>
+      <pose>-1805.0183377250592 408.78308636130396 9 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>4.0</radius>
+              <length>7</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.03 0.28 0.08 1</ambient>
+            <diffuse>0.03 0.28 0.08 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_22_trunk">
+      <static>true</static>
+      <pose>-2286.00528323541 353.8824358492059 3 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.7</radius>
+              <length>6</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.22 0.12 0.06 1</ambient>
+            <diffuse>0.22 0.12 0.06 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_22_canopy">
+      <static>true</static>
+      <pose>-2286.00528323541 353.8824358492059 9 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>4.0</radius>
+              <length>7</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.03 0.28 0.08 1</ambient>
+            <diffuse>0.03 0.28 0.08 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_23_trunk">
+      <static>true</static>
+      <pose>-1459.1364065984335 -970.7220627465529 3 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.7</radius>
+              <length>6</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.22 0.12 0.06 1</ambient>
+            <diffuse>0.22 0.12 0.06 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_23_canopy">
+      <static>true</static>
+      <pose>-1459.1364065984335 -970.7220627465529 9 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>4.0</radius>
+              <length>7</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.03 0.28 0.08 1</ambient>
+            <diffuse>0.03 0.28 0.08 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_24_trunk">
+      <static>true</static>
+      <pose>-1241.278672573164 713.1597879497917 3 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.7</radius>
+              <length>6</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.22 0.12 0.06 1</ambient>
+            <diffuse>0.22 0.12 0.06 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_24_canopy">
+      <static>true</static>
+      <pose>-1241.278672573164 713.1597879497917 9 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>4.0</radius>
+              <length>7</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.03 0.28 0.08 1</ambient>
+            <diffuse>0.03 0.28 0.08 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_25_trunk">
+      <static>true</static>
+      <pose>-1499.3825777747338 -927.626103598541 3 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.7</radius>
+              <length>6</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.22 0.12 0.06 1</ambient>
+            <diffuse>0.22 0.12 0.06 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_25_canopy">
+      <static>true</static>
+      <pose>-1499.3825777747338 -927.626103598541 9 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>4.0</radius>
+              <length>7</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.03 0.28 0.08 1</ambient>
+            <diffuse>0.03 0.28 0.08 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_26_trunk">
+      <static>true</static>
+      <pose>-924.2334727279931 560.9295293122941 3 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.7</radius>
+              <length>6</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.22 0.12 0.06 1</ambient>
+            <diffuse>0.22 0.12 0.06 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_26_canopy">
+      <static>true</static>
+      <pose>-924.2334727279931 560.9295293122941 9 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>4.0</radius>
+              <length>7</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.03 0.28 0.08 1</ambient>
+            <diffuse>0.03 0.28 0.08 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_27_trunk">
+      <static>true</static>
+      <pose>-1879.1943520373266 -236.14947022182503 3 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.7</radius>
+              <length>6</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.22 0.12 0.06 1</ambient>
+            <diffuse>0.22 0.12 0.06 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_27_canopy">
+      <static>true</static>
+      <pose>-1879.1943520373266 -236.14947022182503 9 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>4.0</radius>
+              <length>7</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.03 0.28 0.08 1</ambient>
+            <diffuse>0.03 0.28 0.08 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_28_trunk">
+      <static>true</static>
+      <pose>-1844.1436856729156 -61.588223226574655 3 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.7</radius>
+              <length>6</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.22 0.12 0.06 1</ambient>
+            <diffuse>0.22 0.12 0.06 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_28_canopy">
+      <static>true</static>
+      <pose>-1844.1436856729156 -61.588223226574655 9 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>4.0</radius>
+              <length>7</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.03 0.28 0.08 1</ambient>
+            <diffuse>0.03 0.28 0.08 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_29_trunk">
+      <static>true</static>
+      <pose>-1888.1532377080753 711.545160749049 3 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.7</radius>
+              <length>6</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.22 0.12 0.06 1</ambient>
+            <diffuse>0.22 0.12 0.06 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_29_canopy">
+      <static>true</static>
+      <pose>-1888.1532377080753 711.545160749049 9 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>4.0</radius>
+              <length>7</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.03 0.28 0.08 1</ambient>
+            <diffuse>0.03 0.28 0.08 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_30_trunk">
+      <static>true</static>
+      <pose>-1166.5036228649128 -962.5375410510032 3 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.7</radius>
+              <length>6</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.22 0.12 0.06 1</ambient>
+            <diffuse>0.22 0.12 0.06 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_30_canopy">
+      <static>true</static>
+      <pose>-1166.5036228649128 -962.5375410510032 9 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>4.0</radius>
+              <length>7</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.03 0.28 0.08 1</ambient>
+            <diffuse>0.03 0.28 0.08 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_31_trunk">
+      <static>true</static>
+      <pose>-958.8186491781321 230.06648872825326 3 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.7</radius>
+              <length>6</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.22 0.12 0.06 1</ambient>
+            <diffuse>0.22 0.12 0.06 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_31_canopy">
+      <static>true</static>
+      <pose>-958.8186491781321 230.06648872825326 9 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>4.0</radius>
+              <length>7</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.03 0.28 0.08 1</ambient>
+            <diffuse>0.03 0.28 0.08 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_32_trunk">
+      <static>true</static>
+      <pose>-1156.9390334963127 391.44444833867306 3 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.7</radius>
+              <length>6</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.22 0.12 0.06 1</ambient>
+            <diffuse>0.22 0.12 0.06 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_32_canopy">
+      <static>true</static>
+      <pose>-1156.9390334963127 391.44444833867306 9 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>4.0</radius>
+              <length>7</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.03 0.28 0.08 1</ambient>
+            <diffuse>0.03 0.28 0.08 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_33_trunk">
+      <static>true</static>
+      <pose>-1746.7692824884844 451.0394340301318 3 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.7</radius>
+              <length>6</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.22 0.12 0.06 1</ambient>
+            <diffuse>0.22 0.12 0.06 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_33_canopy">
+      <static>true</static>
+      <pose>-1746.7692824884844 451.0394340301318 9 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>4.0</radius>
+              <length>7</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.03 0.28 0.08 1</ambient>
+            <diffuse>0.03 0.28 0.08 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_34_trunk">
+      <static>true</static>
+      <pose>-951.7894031428834 -592.3146081283481 3 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.7</radius>
+              <length>6</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.22 0.12 0.06 1</ambient>
+            <diffuse>0.22 0.12 0.06 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_34_canopy">
+      <static>true</static>
+      <pose>-951.7894031428834 -592.3146081283481 9 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>4.0</radius>
+              <length>7</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.03 0.28 0.08 1</ambient>
+            <diffuse>0.03 0.28 0.08 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_35_trunk">
+      <static>true</static>
+      <pose>-1187.701171789866 10.889039508575479 3 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.7</radius>
+              <length>6</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.22 0.12 0.06 1</ambient>
+            <diffuse>0.22 0.12 0.06 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_35_canopy">
+      <static>true</static>
+      <pose>-1187.701171789866 10.889039508575479 9 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>4.0</radius>
+              <length>7</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.03 0.28 0.08 1</ambient>
+            <diffuse>0.03 0.28 0.08 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_36_trunk">
+      <static>true</static>
+      <pose>-1674.7537441752058 -219.95739074123787 3 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.7</radius>
+              <length>6</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.22 0.12 0.06 1</ambient>
+            <diffuse>0.22 0.12 0.06 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_36_canopy">
+      <static>true</static>
+      <pose>-1674.7537441752058 -219.95739074123787 9 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>4.0</radius>
+              <length>7</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.03 0.28 0.08 1</ambient>
+            <diffuse>0.03 0.28 0.08 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_37_trunk">
+      <static>true</static>
+      <pose>-1303.4606785423166 -596.110039389243 3 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.7</radius>
+              <length>6</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.22 0.12 0.06 1</ambient>
+            <diffuse>0.22 0.12 0.06 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_37_canopy">
+      <static>true</static>
+      <pose>-1303.4606785423166 -596.110039389243 9 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>4.0</radius>
+              <length>7</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.03 0.28 0.08 1</ambient>
+            <diffuse>0.03 0.28 0.08 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_38_trunk">
+      <static>true</static>
+      <pose>-1122.4302599710022 669.1447925038576 3 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.7</radius>
+              <length>6</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.22 0.12 0.06 1</ambient>
+            <diffuse>0.22 0.12 0.06 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_38_canopy">
+      <static>true</static>
+      <pose>-1122.4302599710022 669.1447925038576 9 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>4.0</radius>
+              <length>7</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.03 0.28 0.08 1</ambient>
+            <diffuse>0.03 0.28 0.08 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_39_trunk">
+      <static>true</static>
+      <pose>-2270.0056529164885 783.670164006237 3 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.7</radius>
+              <length>6</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.22 0.12 0.06 1</ambient>
+            <diffuse>0.22 0.12 0.06 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_39_canopy">
+      <static>true</static>
+      <pose>-2270.0056529164885 783.670164006237 9 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>4.0</radius>
+              <length>7</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.03 0.28 0.08 1</ambient>
+            <diffuse>0.03 0.28 0.08 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_40_trunk">
+      <static>true</static>
+      <pose>-2034.204841213566 -154.40595014272867 3 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.7</radius>
+              <length>6</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.22 0.12 0.06 1</ambient>
+            <diffuse>0.22 0.12 0.06 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_40_canopy">
+      <static>true</static>
+      <pose>-2034.204841213566 -154.40595014272867 9 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>4.0</radius>
+              <length>7</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.03 0.28 0.08 1</ambient>
+            <diffuse>0.03 0.28 0.08 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_41_trunk">
+      <static>true</static>
+      <pose>-1484.502443654219 -347.2740657114059 3 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.7</radius>
+              <length>6</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.22 0.12 0.06 1</ambient>
+            <diffuse>0.22 0.12 0.06 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_41_canopy">
+      <static>true</static>
+      <pose>-1484.502443654219 -347.2740657114059 9 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>4.0</radius>
+              <length>7</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.03 0.28 0.08 1</ambient>
+            <diffuse>0.03 0.28 0.08 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_42_trunk">
+      <static>true</static>
+      <pose>-2356.9500033448658 714.643881703033 3 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.7</radius>
+              <length>6</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.22 0.12 0.06 1</ambient>
+            <diffuse>0.22 0.12 0.06 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_42_canopy">
+      <static>true</static>
+      <pose>-2356.9500033448658 714.643881703033 9 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>4.0</radius>
+              <length>7</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.03 0.28 0.08 1</ambient>
+            <diffuse>0.03 0.28 0.08 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_43_trunk">
+      <static>true</static>
+      <pose>-2127.2402142634623 -722.7303370955872 3 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.7</radius>
+              <length>6</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.22 0.12 0.06 1</ambient>
+            <diffuse>0.22 0.12 0.06 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_43_canopy">
+      <static>true</static>
+      <pose>-2127.2402142634623 -722.7303370955872 9 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>4.0</radius>
+              <length>7</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.03 0.28 0.08 1</ambient>
+            <diffuse>0.03 0.28 0.08 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_44_trunk">
+      <static>true</static>
+      <pose>-1203.2514647578553 -434.2376028803618 3 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.7</radius>
+              <length>6</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.22 0.12 0.06 1</ambient>
+            <diffuse>0.22 0.12 0.06 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_44_canopy">
+      <static>true</static>
+      <pose>-1203.2514647578553 -434.2376028803618 9 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>4.0</radius>
+              <length>7</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.03 0.28 0.08 1</ambient>
+            <diffuse>0.03 0.28 0.08 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_45_trunk">
+      <static>true</static>
+      <pose>-1079.5200303626618 377.66343824745354 3 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.7</radius>
+              <length>6</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.22 0.12 0.06 1</ambient>
+            <diffuse>0.22 0.12 0.06 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_45_canopy">
+      <static>true</static>
+      <pose>-1079.5200303626618 377.66343824745354 9 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>4.0</radius>
+              <length>7</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.03 0.28 0.08 1</ambient>
+            <diffuse>0.03 0.28 0.08 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_46_trunk">
+      <static>true</static>
+      <pose>-1985.5971363657227 -1177.1599925129765 3 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.7</radius>
+              <length>6</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.22 0.12 0.06 1</ambient>
+            <diffuse>0.22 0.12 0.06 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_46_canopy">
+      <static>true</static>
+      <pose>-1985.5971363657227 -1177.1599925129765 9 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>4.0</radius>
+              <length>7</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.03 0.28 0.08 1</ambient>
+            <diffuse>0.03 0.28 0.08 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_47_trunk">
+      <static>true</static>
+      <pose>-977.9061333344532 -1007.3708355944522 3 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.7</radius>
+              <length>6</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.22 0.12 0.06 1</ambient>
+            <diffuse>0.22 0.12 0.06 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_47_canopy">
+      <static>true</static>
+      <pose>-977.9061333344532 -1007.3708355944522 9 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>4.0</radius>
+              <length>7</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.03 0.28 0.08 1</ambient>
+            <diffuse>0.03 0.28 0.08 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_48_trunk">
+      <static>true</static>
+      <pose>-1319.8880038437085 -100.6998445902284 3 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.7</radius>
+              <length>6</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.22 0.12 0.06 1</ambient>
+            <diffuse>0.22 0.12 0.06 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_48_canopy">
+      <static>true</static>
+      <pose>-1319.8880038437085 -100.6998445902284 9 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>4.0</radius>
+              <length>7</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.03 0.28 0.08 1</ambient>
+            <diffuse>0.03 0.28 0.08 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_49_trunk">
+      <static>true</static>
+      <pose>-1262.7530197763003 353.8710137546768 3 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.7</radius>
+              <length>6</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.22 0.12 0.06 1</ambient>
+            <diffuse>0.22 0.12 0.06 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_49_canopy">
+      <static>true</static>
+      <pose>-1262.7530197763003 353.8710137546768 9 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>4.0</radius>
+              <length>7</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.03 0.28 0.08 1</ambient>
+            <diffuse>0.03 0.28 0.08 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_50_trunk">
+      <static>true</static>
+      <pose>-1431.1456503885715 -95.65199607318118 3 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.7</radius>
+              <length>6</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.22 0.12 0.06 1</ambient>
+            <diffuse>0.22 0.12 0.06 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_50_canopy">
+      <static>true</static>
+      <pose>-1431.1456503885715 -95.65199607318118 9 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>4.0</radius>
+              <length>7</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.03 0.28 0.08 1</ambient>
+            <diffuse>0.03 0.28 0.08 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_51_trunk">
+      <static>true</static>
+      <pose>-1210.600697801524 -990.6299612519888 3 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.7</radius>
+              <length>6</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.22 0.12 0.06 1</ambient>
+            <diffuse>0.22 0.12 0.06 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_51_canopy">
+      <static>true</static>
+      <pose>-1210.600697801524 -990.6299612519888 9 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>4.0</radius>
+              <length>7</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.03 0.28 0.08 1</ambient>
+            <diffuse>0.03 0.28 0.08 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_52_trunk">
+      <static>true</static>
+      <pose>-2067.605399291205 356.5210994142042 3 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.7</radius>
+              <length>6</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.22 0.12 0.06 1</ambient>
+            <diffuse>0.22 0.12 0.06 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_52_canopy">
+      <static>true</static>
+      <pose>-2067.605399291205 356.5210994142042 9 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>4.0</radius>
+              <length>7</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.03 0.28 0.08 1</ambient>
+            <diffuse>0.03 0.28 0.08 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_53_trunk">
+      <static>true</static>
+      <pose>-1940.6909548048675 108.50006699782625 3 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.7</radius>
+              <length>6</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.22 0.12 0.06 1</ambient>
+            <diffuse>0.22 0.12 0.06 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_53_canopy">
+      <static>true</static>
+      <pose>-1940.6909548048675 108.50006699782625 9 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>4.0</radius>
+              <length>7</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.03 0.28 0.08 1</ambient>
+            <diffuse>0.03 0.28 0.08 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_54_trunk">
+      <static>true</static>
+      <pose>-1690.109266860713 -5.4256549220224315 3 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.7</radius>
+              <length>6</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.22 0.12 0.06 1</ambient>
+            <diffuse>0.22 0.12 0.06 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_54_canopy">
+      <static>true</static>
+      <pose>-1690.109266860713 -5.4256549220224315 9 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>4.0</radius>
+              <length>7</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.03 0.28 0.08 1</ambient>
+            <diffuse>0.03 0.28 0.08 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_55_trunk">
+      <static>true</static>
+      <pose>-1761.7442809421777 478.3547326056216 3 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.7</radius>
+              <length>6</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.22 0.12 0.06 1</ambient>
+            <diffuse>0.22 0.12 0.06 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_55_canopy">
+      <static>true</static>
+      <pose>-1761.7442809421777 478.3547326056216 9 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>4.0</radius>
+              <length>7</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.03 0.28 0.08 1</ambient>
+            <diffuse>0.03 0.28 0.08 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_56_trunk">
+      <static>true</static>
+      <pose>-1903.8130542061049 381.4236199179802 3 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.7</radius>
+              <length>6</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.22 0.12 0.06 1</ambient>
+            <diffuse>0.22 0.12 0.06 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_56_canopy">
+      <static>true</static>
+      <pose>-1903.8130542061049 381.4236199179802 9 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>4.0</radius>
+              <length>7</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.03 0.28 0.08 1</ambient>
+            <diffuse>0.03 0.28 0.08 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_57_trunk">
+      <static>true</static>
+      <pose>-1993.6253595357055 -634.3417285478816 3 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.7</radius>
+              <length>6</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.22 0.12 0.06 1</ambient>
+            <diffuse>0.22 0.12 0.06 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_57_canopy">
+      <static>true</static>
+      <pose>-1993.6253595357055 -634.3417285478816 9 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>4.0</radius>
+              <length>7</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.03 0.28 0.08 1</ambient>
+            <diffuse>0.03 0.28 0.08 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_58_trunk">
+      <static>true</static>
+      <pose>-2219.016172871541 -766.6853397340858 3 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.7</radius>
+              <length>6</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.22 0.12 0.06 1</ambient>
+            <diffuse>0.22 0.12 0.06 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_58_canopy">
+      <static>true</static>
+      <pose>-2219.016172871541 -766.6853397340858 9 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>4.0</radius>
+              <length>7</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.03 0.28 0.08 1</ambient>
+            <diffuse>0.03 0.28 0.08 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_59_trunk">
+      <static>true</static>
+      <pose>-2220.6678881174207 5.693922113437111 3 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.7</radius>
+              <length>6</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.22 0.12 0.06 1</ambient>
+            <diffuse>0.22 0.12 0.06 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_59_canopy">
+      <static>true</static>
+      <pose>-2220.6678881174207 5.693922113437111 9 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>4.0</radius>
+              <length>7</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.03 0.28 0.08 1</ambient>
+            <diffuse>0.03 0.28 0.08 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_60_trunk">
+      <static>true</static>
+      <pose>-1256.7155857738455 -783.4128545152605 3 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.7</radius>
+              <length>6</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.22 0.12 0.06 1</ambient>
+            <diffuse>0.22 0.12 0.06 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_60_canopy">
+      <static>true</static>
+      <pose>-1256.7155857738455 -783.4128545152605 9 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>4.0</radius>
+              <length>7</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.03 0.28 0.08 1</ambient>
+            <diffuse>0.03 0.28 0.08 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_61_trunk">
+      <static>true</static>
+      <pose>-2075.4230401820914 -110.55317877140533 3 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.7</radius>
+              <length>6</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.22 0.12 0.06 1</ambient>
+            <diffuse>0.22 0.12 0.06 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_61_canopy">
+      <static>true</static>
+      <pose>-2075.4230401820914 -110.55317877140533 9 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>4.0</radius>
+              <length>7</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.03 0.28 0.08 1</ambient>
+            <diffuse>0.03 0.28 0.08 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_62_trunk">
+      <static>true</static>
+      <pose>-1313.1224983604227 997.3658014868779 3 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.7</radius>
+              <length>6</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.22 0.12 0.06 1</ambient>
+            <diffuse>0.22 0.12 0.06 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_62_canopy">
+      <static>true</static>
+      <pose>-1313.1224983604227 997.3658014868779 9 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>4.0</radius>
+              <length>7</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.03 0.28 0.08 1</ambient>
+            <diffuse>0.03 0.28 0.08 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_63_trunk">
+      <static>true</static>
+      <pose>-1613.0446963370882 -563.2529176313512 3 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.7</radius>
+              <length>6</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.22 0.12 0.06 1</ambient>
+            <diffuse>0.22 0.12 0.06 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_63_canopy">
+      <static>true</static>
+      <pose>-1613.0446963370882 -563.2529176313512 9 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>4.0</radius>
+              <length>7</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.03 0.28 0.08 1</ambient>
+            <diffuse>0.03 0.28 0.08 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_64_trunk">
+      <static>true</static>
+      <pose>-2249.210837863814 -763.2354492950848 3 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.7</radius>
+              <length>6</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.22 0.12 0.06 1</ambient>
+            <diffuse>0.22 0.12 0.06 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_64_canopy">
+      <static>true</static>
+      <pose>-2249.210837863814 -763.2354492950848 9 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>4.0</radius>
+              <length>7</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.03 0.28 0.08 1</ambient>
+            <diffuse>0.03 0.28 0.08 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_65_trunk">
+      <static>true</static>
+      <pose>-2058.775254776168 -796.2565267078426 3 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.7</radius>
+              <length>6</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.22 0.12 0.06 1</ambient>
+            <diffuse>0.22 0.12 0.06 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_65_canopy">
+      <static>true</static>
+      <pose>-2058.775254776168 -796.2565267078426 9 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>4.0</radius>
+              <length>7</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.03 0.28 0.08 1</ambient>
+            <diffuse>0.03 0.28 0.08 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_66_trunk">
+      <static>true</static>
+      <pose>-2378.7774491159043 1.8039508522424512 3 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.7</radius>
+              <length>6</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.22 0.12 0.06 1</ambient>
+            <diffuse>0.22 0.12 0.06 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_66_canopy">
+      <static>true</static>
+      <pose>-2378.7774491159043 1.8039508522424512 9 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>4.0</radius>
+              <length>7</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.03 0.28 0.08 1</ambient>
+            <diffuse>0.03 0.28 0.08 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_67_trunk">
+      <static>true</static>
+      <pose>-1988.533009825099 992.1635949811603 3 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.7</radius>
+              <length>6</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.22 0.12 0.06 1</ambient>
+            <diffuse>0.22 0.12 0.06 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_67_canopy">
+      <static>true</static>
+      <pose>-1988.533009825099 992.1635949811603 9 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>4.0</radius>
+              <length>7</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.03 0.28 0.08 1</ambient>
+            <diffuse>0.03 0.28 0.08 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_68_trunk">
+      <static>true</static>
+      <pose>-1569.9615498020876 369.1891340479376 3 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.7</radius>
+              <length>6</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.22 0.12 0.06 1</ambient>
+            <diffuse>0.22 0.12 0.06 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_68_canopy">
+      <static>true</static>
+      <pose>-1569.9615498020876 369.1891340479376 9 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>4.0</radius>
+              <length>7</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.03 0.28 0.08 1</ambient>
+            <diffuse>0.03 0.28 0.08 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_69_trunk">
+      <static>true</static>
+      <pose>-2210.580760562387 754.0376938416241 3 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.7</radius>
+              <length>6</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.22 0.12 0.06 1</ambient>
+            <diffuse>0.22 0.12 0.06 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_69_canopy">
+      <static>true</static>
+      <pose>-2210.580760562387 754.0376938416241 9 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>4.0</radius>
+              <length>7</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.03 0.28 0.08 1</ambient>
+            <diffuse>0.03 0.28 0.08 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_70_trunk">
+      <static>true</static>
+      <pose>-1663.6819582143316 763.6194037467028 3 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.7</radius>
+              <length>6</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.22 0.12 0.06 1</ambient>
+            <diffuse>0.22 0.12 0.06 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_70_canopy">
+      <static>true</static>
+      <pose>-1663.6819582143316 763.6194037467028 9 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>4.0</radius>
+              <length>7</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.03 0.28 0.08 1</ambient>
+            <diffuse>0.03 0.28 0.08 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_71_trunk">
+      <static>true</static>
+      <pose>-1538.9036705605017 -143.85687390635212 3 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.7</radius>
+              <length>6</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.22 0.12 0.06 1</ambient>
+            <diffuse>0.22 0.12 0.06 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_71_canopy">
+      <static>true</static>
+      <pose>-1538.9036705605017 -143.85687390635212 9 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>4.0</radius>
+              <length>7</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.03 0.28 0.08 1</ambient>
+            <diffuse>0.03 0.28 0.08 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_72_trunk">
+      <static>true</static>
+      <pose>-1739.2968027959846 -785.1817416223162 3 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.7</radius>
+              <length>6</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.22 0.12 0.06 1</ambient>
+            <diffuse>0.22 0.12 0.06 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_72_canopy">
+      <static>true</static>
+      <pose>-1739.2968027959846 -785.1817416223162 9 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>4.0</radius>
+              <length>7</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.03 0.28 0.08 1</ambient>
+            <diffuse>0.03 0.28 0.08 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_73_trunk">
+      <static>true</static>
+      <pose>-2322.934924224633 917.3930927282322 3 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.7</radius>
+              <length>6</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.22 0.12 0.06 1</ambient>
+            <diffuse>0.22 0.12 0.06 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_73_canopy">
+      <static>true</static>
+      <pose>-2322.934924224633 917.3930927282322 9 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>4.0</radius>
+              <length>7</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.03 0.28 0.08 1</ambient>
+            <diffuse>0.03 0.28 0.08 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_74_trunk">
+      <static>true</static>
+      <pose>-1683.4062191014684 649.7602019237183 3 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.7</radius>
+              <length>6</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.22 0.12 0.06 1</ambient>
+            <diffuse>0.22 0.12 0.06 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_74_canopy">
+      <static>true</static>
+      <pose>-1683.4062191014684 649.7602019237183 9 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>4.0</radius>
+              <length>7</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.03 0.28 0.08 1</ambient>
+            <diffuse>0.03 0.28 0.08 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_75_trunk">
+      <static>true</static>
+      <pose>-1798.9388366220903 -1033.3151169248104 3 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.7</radius>
+              <length>6</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.22 0.12 0.06 1</ambient>
+            <diffuse>0.22 0.12 0.06 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_75_canopy">
+      <static>true</static>
+      <pose>-1798.9388366220903 -1033.3151169248104 9 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>4.0</radius>
+              <length>7</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.03 0.28 0.08 1</ambient>
+            <diffuse>0.03 0.28 0.08 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_76_trunk">
+      <static>true</static>
+      <pose>-1455.8314395720026 -1079.3795828418004 3 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.7</radius>
+              <length>6</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.22 0.12 0.06 1</ambient>
+            <diffuse>0.22 0.12 0.06 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_76_canopy">
+      <static>true</static>
+      <pose>-1455.8314395720026 -1079.3795828418004 9 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>4.0</radius>
+              <length>7</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.03 0.28 0.08 1</ambient>
+            <diffuse>0.03 0.28 0.08 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_77_trunk">
+      <static>true</static>
+      <pose>-2176.203623289517 66.38909344026956 3 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.7</radius>
+              <length>6</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.22 0.12 0.06 1</ambient>
+            <diffuse>0.22 0.12 0.06 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_77_canopy">
+      <static>true</static>
+      <pose>-2176.203623289517 66.38909344026956 9 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>4.0</radius>
+              <length>7</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.03 0.28 0.08 1</ambient>
+            <diffuse>0.03 0.28 0.08 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_78_trunk">
+      <static>true</static>
+      <pose>-1944.2467322366585 1036.3157760979952 3 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.7</radius>
+              <length>6</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.22 0.12 0.06 1</ambient>
+            <diffuse>0.22 0.12 0.06 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_78_canopy">
+      <static>true</static>
+      <pose>-1944.2467322366585 1036.3157760979952 9 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>4.0</radius>
+              <length>7</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.03 0.28 0.08 1</ambient>
+            <diffuse>0.03 0.28 0.08 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_79_trunk">
+      <static>true</static>
+      <pose>-2222.3226566828075 519.997751983937 3 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.7</radius>
+              <length>6</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.22 0.12 0.06 1</ambient>
+            <diffuse>0.22 0.12 0.06 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="forest_tree_79_canopy">
+      <static>true</static>
+      <pose>-2222.3226566828075 519.997751983937 9 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>4.0</radius>
+              <length>7</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.03 0.28 0.08 1</ambient>
+            <diffuse>0.03 0.28 0.08 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="north_rock_00">
+      <static>true</static>
+      <pose>489.06119571762883 2127.963078796445 0.37930234030861526 0.2 0.1 0.4</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>2.844767552314614 1.8965117015430761 0.7586046806172305</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.28 0.27 0.25 1</ambient>
+            <diffuse>0.28 0.27 0.25 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="north_rock_01">
+      <static>true</static>
+      <pose>103.83366159900197 1685.6688043553804 0.47479724176850446 0.2 0.1 0.4</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>3.5609793132637835 2.3739862088425223 0.9495944835370089</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.28 0.27 0.25 1</ambient>
+            <diffuse>0.28 0.27 0.25 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="north_rock_02">
+      <static>true</static>
+      <pose>1656.766662800428 2387.040638606837 0.4143673075005186 0.2 0.1 0.4</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>3.1077548062538893 2.071836537502593 0.8287346150010372</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.28 0.27 0.25 1</ambient>
+            <diffuse>0.28 0.27 0.25 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="north_rock_03">
+      <static>true</static>
+      <pose>556.7256769318833 1892.5201859186695 0.6056392944131999 0.2 0.1 0.4</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>4.542294708098998 3.028196472065999 1.2112785888263997</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.28 0.27 0.25 1</ambient>
+            <diffuse>0.28 0.27 0.25 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="north_rock_04">
+      <static>true</static>
+      <pose>2058.914921496739 1370.1242775706169 0.37285108593437294 0.2 0.1 0.4</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>2.796383144507797 1.8642554296718645 0.7457021718687459</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.28 0.27 0.25 1</ambient>
+            <diffuse>0.28 0.27 0.25 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="north_rock_05">
+      <static>true</static>
+      <pose>737.9694310833684 1304.1742213951402 0.3564779612636312 0.2 0.1 0.4</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>2.673584709477234 1.7823898063181558 0.7129559225272624</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.28 0.27 0.25 1</ambient>
+            <diffuse>0.28 0.27 0.25 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="north_rock_06">
+      <static>true</static>
+      <pose>-1954.7016030546274 1103.4784393837515 0.4782216300317891 0.2 0.1 0.4</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>3.5866622252384177 2.3911081501589453 0.9564432600635782</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.28 0.27 0.25 1</ambient>
+            <diffuse>0.28 0.27 0.25 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="north_rock_07">
+      <static>true</static>
+      <pose>431.53149754999095 1478.6370757403358 0.38184954320465136 0.2 0.1 0.4</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>2.863871574034885 1.9092477160232568 0.7636990864093027</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.28 0.27 0.25 1</ambient>
+            <diffuse>0.28 0.27 0.25 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="north_rock_08">
+      <static>true</static>
+      <pose>951.996817443553 2013.8838255218323 0.479773783619099 0.2 0.1 0.4</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>3.5983033771432424 2.398868918095495 0.959547567238198</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.28 0.27 0.25 1</ambient>
+            <diffuse>0.28 0.27 0.25 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="north_rock_09">
+      <static>true</static>
+      <pose>861.9706323277164 2301.0843578273134 0.6266443317245618 0.2 0.1 0.4</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>4.699832487934214 3.133221658622809 1.2532886634491236</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.28 0.27 0.25 1</ambient>
+            <diffuse>0.28 0.27 0.25 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="north_rock_10">
+      <static>true</static>
+      <pose>575.2668329554208 1959.5379557093781 0.6908141217160259 0.2 0.1 0.4</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>5.181105912870194 3.454070608580129 1.3816282434320517</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.28 0.27 0.25 1</ambient>
+            <diffuse>0.28 0.27 0.25 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="north_rock_11">
+      <static>true</static>
+      <pose>-344.3607559206264 1807.9310923237522 0.5649592782970915 0.2 0.1 0.4</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>4.237194587228187 2.8247963914854575 1.129918556594183</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.28 0.27 0.25 1</ambient>
+            <diffuse>0.28 0.27 0.25 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="north_rock_12">
+      <static>true</static>
+      <pose>1878.6926479779877 2174.6205075450775 0.31142032821655824 0.2 0.1 0.4</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>2.3356524616241865 1.5571016410827911 0.6228406564331165</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.28 0.27 0.25 1</ambient>
+            <diffuse>0.28 0.27 0.25 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="north_rock_13">
+      <static>true</static>
+      <pose>-1536.7551695846664 1499.8953563985024 0.6095413977106343 0.2 0.1 0.4</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>4.571560482829757 3.0477069885531716 1.2190827954212686</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.28 0.27 0.25 1</ambient>
+            <diffuse>0.28 0.27 0.25 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="north_rock_14">
+      <static>true</static>
+      <pose>318.35242686782476 1475.1937647975942 0.33471560959687163 0.2 0.1 0.4</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>2.510367071976537 1.673578047984358 0.6694312191937433</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.28 0.27 0.25 1</ambient>
+            <diffuse>0.28 0.27 0.25 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="north_rock_15">
+      <static>true</static>
+      <pose>867.9187595756312 2009.6537904684324 0.6947775459273781 0.2 0.1 0.4</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>5.210831594455335 3.47388772963689 1.3895550918547561</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.28 0.27 0.25 1</ambient>
+            <diffuse>0.28 0.27 0.25 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="north_rock_16">
+      <static>true</static>
+      <pose>2.172014742457577 1741.9337851486096 0.3153944148356924 0.2 0.1 0.4</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>2.365458111267693 1.576972074178462 0.6307888296713848</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.28 0.27 0.25 1</ambient>
+            <diffuse>0.28 0.27 0.25 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="north_rock_17">
+      <static>true</static>
+      <pose>-2116.64039275538 1661.6372634090044 0.421821496677652 0.2 0.1 0.4</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>3.16366122508239 2.10910748338826 0.843642993355304</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.28 0.27 0.25 1</ambient>
+            <diffuse>0.28 0.27 0.25 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="north_rock_18">
+      <static>true</static>
+      <pose>-1148.3076489047821 1218.7249526202809 0.7032408849648482 0.2 0.1 0.4</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>5.274306637236361 3.516204424824241 1.4064817699296963</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.28 0.27 0.25 1</ambient>
+            <diffuse>0.28 0.27 0.25 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="north_rock_19">
+      <static>true</static>
+      <pose>1545.409623968434 1847.7588419859096 0.6983459622347952 0.2 0.1 0.4</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>5.237594716760963 3.4917298111739754 1.3966919244695903</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.28 0.27 0.25 1</ambient>
+            <diffuse>0.28 0.27 0.25 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="north_rock_20">
+      <static>true</static>
+      <pose>2298.033117636276 1973.966059594211 0.3985848514255037 0.2 0.1 0.4</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>2.9893863856912777 1.9929242571275185 0.7971697028510074</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.28 0.27 0.25 1</ambient>
+            <diffuse>0.28 0.27 0.25 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="north_rock_21">
+      <static>true</static>
+      <pose>-2114.9343035347656 2083.149479536324 0.48702036223071876 0.2 0.1 0.4</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>3.6526527167303904 2.4351018111535936 0.9740407244614375</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.28 0.27 0.25 1</ambient>
+            <diffuse>0.28 0.27 0.25 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="north_rock_22">
+      <static>true</static>
+      <pose>696.9436513949572 2290.8946243047976 0.35985522477817544 0.2 0.1 0.4</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>2.6989141858363155 1.799276123890877 0.7197104495563509</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.28 0.27 0.25 1</ambient>
+            <diffuse>0.28 0.27 0.25 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="north_rock_23">
+      <static>true</static>
+      <pose>392.51627627813014 1925.220135290313 0.49635935296404593 0.2 0.1 0.4</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>3.7226951472303442 2.4817967648202295 0.9927187059280919</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.28 0.27 0.25 1</ambient>
+            <diffuse>0.28 0.27 0.25 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="north_rock_24">
+      <static>true</static>
+      <pose>-1880.284931048395 1552.3493731830456 0.4266556932126405 0.2 0.1 0.4</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>3.1999176990948035 2.1332784660632025 0.853311386425281</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.28 0.27 0.25 1</ambient>
+            <diffuse>0.28 0.27 0.25 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="north_rock_25">
+      <static>true</static>
+      <pose>782.6141437974529 2215.053022720458 0.42511361197474484 0.2 0.1 0.4</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>3.188352089810586 2.125568059873724 0.8502272239494897</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.28 0.27 0.25 1</ambient>
+            <diffuse>0.28 0.27 0.25 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="north_rock_26">
+      <static>true</static>
+      <pose>890.8989003237893 1474.6831339698924 0.6958851574078126 0.2 0.1 0.4</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>5.219138680558595 3.4794257870390632 1.3917703148156253</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.28 0.27 0.25 1</ambient>
+            <diffuse>0.28 0.27 0.25 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="north_rock_27">
+      <static>true</static>
+      <pose>1442.403759794674 1815.1255916633177 0.480123399784761 0.2 0.1 0.4</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>3.600925498385707 2.400616998923805 0.960246799569522</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.28 0.27 0.25 1</ambient>
+            <diffuse>0.28 0.27 0.25 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="north_rock_28">
+      <static>true</static>
+      <pose>-853.2210770172276 1520.255922158793 0.706881279795774 0.2 0.1 0.4</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>5.301609598468304 3.5344063989788697 1.413762559591548</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.28 0.27 0.25 1</ambient>
+            <diffuse>0.28 0.27 0.25 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="north_rock_29">
+      <static>true</static>
+      <pose>-440.7947377965702 1768.9751280278365 0.7147724545039719 0.2 0.1 0.4</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>5.360793408779789 3.573862272519859 1.4295449090079437</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.28 0.27 0.25 1</ambient>
+            <diffuse>0.28 0.27 0.25 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="north_rock_30">
+      <static>true</static>
+      <pose>725.2377778223931 1805.3716726643534 0.4618289311517015 0.2 0.1 0.4</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>3.4637169836377613 2.3091446557585074 0.923657862303403</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.28 0.27 0.25 1</ambient>
+            <diffuse>0.28 0.27 0.25 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="north_rock_31">
+      <static>true</static>
+      <pose>-1437.1203095851752 1570.3131668971778 0.6128349877844524 0.2 0.1 0.4</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>4.596262408383393 3.064174938922262 1.225669975568905</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.28 0.27 0.25 1</ambient>
+            <diffuse>0.28 0.27 0.25 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="north_rock_32">
+      <static>true</static>
+      <pose>576.8802138670412 2087.987696879322 0.36956562487412054 0.2 0.1 0.4</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>2.7717421865559038 1.8478281243706025 0.7391312497482411</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.28 0.27 0.25 1</ambient>
+            <diffuse>0.28 0.27 0.25 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="north_rock_33">
+      <static>true</static>
+      <pose>226.41033979252552 2305.974589097782 0.47277108183184646 0.2 0.1 0.4</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>3.5457831137388487 2.3638554091592323 0.9455421636636929</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.28 0.27 0.25 1</ambient>
+            <diffuse>0.28 0.27 0.25 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+  </world>
+</sdf>
