@@ -185,6 +185,22 @@ def request_streams(conn, sysid):
             print(f"system {sysid}: telemetry interval request for msg {msg_id} skipped: {exc}")
 
 
+def set_ground_speed(conn, sysid, speed_m_s):
+    if speed_m_s <= 0:
+        return
+    print(f"system {sysid}: set ground speed to {speed_m_s:.1f} m/s")
+    try:
+        command_long(
+            conn,
+            sysid,
+            mavutil.mavlink.MAV_CMD_DO_CHANGE_SPEED,
+            [1, speed_m_s, -1, 0, 0, 0, 0],
+            timeout=5,
+        )
+    except Exception as exc:
+        print(f"system {sysid}: speed command skipped: {exc}")
+
+
 def wait_altitude(conns, states, sysid, target_m, timeout=45, tolerance=3.0):
     deadline = time.time() + timeout
     best = None
@@ -215,7 +231,7 @@ def offset_latlon(lat, lon, north_m, east_m):
     return new_lat, new_lon
 
 
-def reposition_from_home(conn, state, east_m, north_m, rel_alt_m):
+def reposition_from_home(conn, state, east_m, north_m, rel_alt_m, speed_m_s=0.0):
     reference_lat = state.home_latitude or state.latitude
     reference_lon = state.home_longitude or state.longitude
     target_lat, target_lon = offset_latlon(reference_lat, reference_lon, north_m, east_m)
@@ -225,7 +241,7 @@ def reposition_from_home(conn, state, east_m, north_m, rel_alt_m):
         state.sysid,
         mavutil.mavlink.MAV_CMD_DO_REPOSITION,
         [
-            -1,
+            speed_m_s if speed_m_s > 0 else -1,
             mavutil.mavlink.MAV_DO_REPOSITION_FLAGS_CHANGE_MODE,
             0,
             math.nan,
@@ -341,6 +357,33 @@ def mission_targets(profile, altitude_m):
             2: [(40, -160, altitude_m + 5), (120, -360, altitude_m + 5), (220, -620, altitude_m + 5), (340, -920, altitude_m + 5)],
             3: [(160, 100, altitude_m + 10), (380, 240, altitude_m + 10), (660, 420, altitude_m + 10), (980, 640, altitude_m + 10)],
         }
+    if profile == "whole_area":
+        return {
+            1: [
+                (-2200, 1800, altitude_m + 55), (-1400, 2260, altitude_m + 80),
+                (-300, 1800, altitude_m + 65), (900, 2160, altitude_m + 85),
+                (2140, 1180, altitude_m + 60), (2260, 120, altitude_m + 55),
+                (1500, -1180, altitude_m + 50), (460, -2140, altitude_m + 55),
+                (-920, -1780, altitude_m + 45), (-2140, -980, altitude_m + 48),
+                (-2260, 160, altitude_m + 58), (-1560, 960, altitude_m + 72),
+            ],
+            2: [
+                (-1800, 1080, altitude_m + 65), (-780, 1480, altitude_m + 75),
+                (120, 260, altitude_m + 48), (980, 60, altitude_m + 52),
+                (2100, 540, altitude_m + 65), (1740, 1560, altitude_m + 78),
+                (640, 2240, altitude_m + 82), (-540, 2020, altitude_m + 76),
+                (-1660, 740, altitude_m + 60), (-760, -720, altitude_m + 45),
+                (520, -1540, altitude_m + 52), (1880, -1800, altitude_m + 56),
+            ],
+            3: [
+                (2200, -1620, altitude_m + 58), (1440, -920, altitude_m + 50),
+                (420, -460, altitude_m + 45), (-680, -720, altitude_m + 48),
+                (-1760, -1420, altitude_m + 56), (-2240, -120, altitude_m + 62),
+                (-1840, 1320, altitude_m + 76), (-760, 2260, altitude_m + 88),
+                (520, 1880, altitude_m + 70), (1580, 960, altitude_m + 66),
+                (2240, -40, altitude_m + 60), (860, -2060, altitude_m + 54),
+            ],
+        }
     return {
         1: [(-180, 120, altitude_m), (-360, 260, altitude_m), (-520, 360, altitude_m)],
         2: [(0, -160, altitude_m + 5), (80, -360, altitude_m + 5), (0, -560, altitude_m + 5)],
@@ -348,12 +391,13 @@ def mission_targets(profile, altitude_m):
     }
 
 
-def run_collection(conns, states, output_csv, lora_packet_csv, duration_s, altitude_m, profile):
+def run_collection(conns, states, output_csv, lora_packet_csv, duration_s, altitude_m, profile, speed_m_s=0.0):
     targets = mission_targets(profile, altitude_m)
     output_csv.parent.mkdir(parents=True, exist_ok=True)
     start_time = time.time()
     next_sample = start_time
     next_target = start_time
+    target_interval_s = 50.0 if profile == "whole_area" else 20.0
     target_index = 0
     with output_csv.open("w", newline="") as f:
         writer = csv.DictWriter(f, fieldnames=CSV_COLUMNS)
@@ -373,11 +417,12 @@ def run_collection(conns, states, output_csv, lora_packet_csv, duration_s, altit
                 for sysid, path in targets.items():
                     east_m, north_m, z_m = path[target_index % len(path)]
                     try:
-                        reposition_from_home(conns[sysid], states[sysid], east_m, north_m, z_m)
+                        reposition_from_home(conns[sysid], states[sysid], east_m, north_m, z_m, speed_m_s)
+                        print(f"system {sysid}: new target east={east_m:.0f} north={north_m:.0f} alt={z_m:.0f}")
                     except Exception as exc:
                         print(f"system {sysid}: reposition skipped: {exc}")
                 target_index += 1
-                next_target = now + 20.0
+                next_target = now + target_interval_s
 
             if now >= next_sample:
                 recent_lora_packets = count_recent_lora_packets(lora_packet_csv, start_time)
@@ -404,6 +449,7 @@ def main():
     parser.add_argument("--ports", nargs=3, type=int, default=[14540, 14541, 14542])
     parser.add_argument("--duration", type=float, default=60.0)
     parser.add_argument("--altitude", type=float, default=35.0)
+    parser.add_argument("--speed", type=float, default=0.0, help="optional PX4 ground speed command in m/s")
     parser.add_argument(
         "--profile",
         choices=[
@@ -414,6 +460,7 @@ def main():
             "focus_drone2",
             "focus_drone3",
             "all_directions",
+            "whole_area",
         ],
         default="terrain",
     )
@@ -437,6 +484,8 @@ def main():
     wait_for_systems(conns, systems)
     for sysid in systems:
         request_streams(conns[sysid], sysid)
+    for sysid in systems:
+        set_ground_speed(conns[sysid], sysid, args.speed)
     drain_messages(conns, states, 3.0)
     for state in states.values():
         state.home_latitude = state.latitude
@@ -450,7 +499,7 @@ def main():
     output_csv = Path(args.output)
     lora_packet_csv = Path(args.lora_packets)
     print(f"collecting moving drone positions for {args.duration:.0f}s into {output_csv}")
-    run_collection(conns, states, output_csv, lora_packet_csv, args.duration, args.altitude, args.profile)
+    run_collection(conns, states, output_csv, lora_packet_csv, args.duration, args.altitude, args.profile, args.speed)
 
     if not args.no_land:
         land_all(conns, systems)

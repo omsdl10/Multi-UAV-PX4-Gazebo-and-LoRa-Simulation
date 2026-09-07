@@ -3,6 +3,7 @@ __pycache__/
 *.pyc
 
 .run/
+tmp/
 
 logs/
 !logs/.gitkeep
