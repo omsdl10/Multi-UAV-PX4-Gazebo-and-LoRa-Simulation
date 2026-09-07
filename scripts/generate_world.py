@@ -137,6 +137,31 @@ def vehicle(world, name, x, y, yaw=0.0, color="0.18 0.22 0.18 1"):
     static_box(world, f"{name}_cab", f"{x+1.0*math.cos(yaw):.1f} {y+1.0*math.sin(yaw):.1f} 1.9 0 0 {yaw:.3f}", "2.1 2.0 1.1", color, False)
 
 
+def audisys_target(world):
+    model = add(world, "model", name="audisys_target")
+    add(model, "static", "false")
+    add(model, "pose", "-980 -520 0.75 0 0 0.2")
+    link = add(model, "link", name="link")
+    inertial = add(link, "inertial")
+    add(inertial, "mass", "35")
+    inertia = add(inertial, "inertia")
+    add(inertia, "ixx", "8")
+    add(inertia, "iyy", "8")
+    add(inertia, "izz", "4")
+    visual = add(link, "visual", name="body_visual")
+    geometry = add(visual, "geometry")
+    box = add(geometry, "box")
+    add(box, "size", "3.2 1.5 1.5")
+    material(visual, "0.70 0.15 0.10 1", "0.85 0.20 0.12 1")
+    marker_visual = add(link, "visual", name="mast_visual")
+    marker_geometry = add(marker_visual, "geometry")
+    cylinder = add(marker_geometry, "cylinder")
+    add(cylinder, "radius", "0.09")
+    add(cylinder, "length", "3.0")
+    add(marker_visual, "pose", "0 0 2.25 0 0 0")
+    material(marker_visual, "0.95 0.80 0.15 1", "1.0 0.88 0.18 1")
+
+
 def sandbag_wall(world, name, x, y, yaw, length=18):
     for i in range(int(length // 3)):
         offset = (i - length / 6) * 3.0
@@ -351,6 +376,7 @@ def generate():
     static_box(world, "uav_base_pad_border_surveillance", "0 180 0.08 0 0 0", "105 76 0.16", "0.12 0.12 0.13 1", False)
     static_box(world, "uav_base_marking_x", "0 180 0.18 0 0 0", "78 4 0.05", "0.94 0.86 0.55 1", False)
     static_box(world, "uav_base_marking_y", "0 180 0.19 0 0 0", "4 56 0.05", "0.94 0.86 0.55 1", False)
+    audisys_target(world)
 
     for i in range(95):
         x = random.uniform(-2400, 2400)

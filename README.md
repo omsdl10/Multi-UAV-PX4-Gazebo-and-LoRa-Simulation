@@ -222,6 +222,64 @@ cd /Users/omsingh/Desktop/projects/multi_uav_lora_sim
 
 The LoRa manager continuously logs link quality and topology changes. If direct Drone1 -> Drone3 delivery fails and Drone2 can bridge both links, the P2P manager attempts Drone1 -> Drone2 -> Drone3 with TTL and duplicate filtering.
 
+## AuDiSys Scenario Layer
+
+The AuDiSys layer is a separate mission/event layer for task-assignment handoff experiments. It does not replace the working PX4, Gazebo, or LoRa stack, and it does not implement a final allocation algorithm.
+
+It adds:
+
+- Drone1 role: Scout
+- Drone2 role: Relay
+- Drone3 role: Designator
+- deterministic moving target model: `audisys_target`
+- task events: `DETECTION`, `TRACKING`, `RELAY`, `DESIGNATION`
+- allocation-interface observation logging with no hard-coded task winner
+
+Configuration:
+
+```sh
+config/audisys_scenario.yaml
+```
+
+Run:
+
+```sh
+cd /Users/omsingh/Desktop/projects/multi_uav_lora_sim
+GAZEBO_GUI=1 scripts/start_audisys_simulation.sh
+```
+
+This starts the base simulator, the AuDiSys scenario layer, and a default whole-area UAV movement mission. Useful overrides:
+
+```sh
+AUDISYS_DURATION=600 AUDISYS_SPEED=18 GAZEBO_GUI=1 scripts/start_audisys_simulation.sh
+```
+
+Stop:
+
+```sh
+cd /Users/omsingh/Desktop/projects/multi_uav_lora_sim
+scripts/stop_audisys_simulation.sh
+```
+
+AuDiSys logs:
+
+- `logs/audisys/uav_state.csv`
+- `logs/audisys/target_state.csv`
+- `logs/audisys/radio.csv`
+- `logs/audisys/tasks.csv`
+- `logs/audisys/events.csv`
+- `logs/audisys/allocation_messages.csv`
+- `logs/audisys/flight_positions.csv`
+
+Documentation:
+
+- `docs/README_AUDISYS.md`
+- `HANDOFF.md`
+- `OPEN_QUESTIONS.md`
+- `docs/TASK1_TEST.md`
+- `docs/TASK2_TEST.md`
+- `docs/TASK3_TEST.md`
+
 ## Performance
 
 Profile a running stack:

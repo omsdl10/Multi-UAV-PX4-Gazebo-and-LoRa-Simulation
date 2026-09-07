@@ -1,0 +1,81 @@
+scenario:
+  seed: 42
+  world_name: uav_5km_world
+  world_size_m: 5000
+  duration_s: 300
+  update_rate_hz: 2
+  logs_dir: logs/audisys
+  state_source: flight_csv
+  flight_positions_csv: logs/audisys/flight_positions.csv
+
+target:
+  enabled: true
+  id: target_1
+  model_name: audisys_target
+  speed_mps: 8.0
+  route:
+    - [-980, -520, 0.75]
+    - [-740, -430, 0.75]
+    - [-510, -380, 0.75]
+    - [-250, -250, 0.75]
+    - [40, -120, 0.75]
+    - [310, -170, 0.75]
+    - [620, -60, 0.75]
+
+uavs:
+  - id: 1
+    role: Scout
+    capability: scout
+    mavlink_port: 14540
+  - id: 2
+    role: Relay
+    capability: relay
+    mavlink_port: 14541
+  - id: 3
+    role: Designator
+    capability: designator
+    mavlink_port: 14542
+
+communication:
+  condition: normal
+  radio_csv: logs/lora_packets.csv
+  pdr_window_packets: 30
+  normal:
+    rssi_threshold_dbm: -95
+    snr_threshold_db: 10
+    pdr_threshold: 0.85
+  degraded:
+    rssi_threshold_dbm: -110
+    snr_threshold_db: -3
+    pdr_threshold: 0.60
+  obstructed:
+    require_obstruction: true
+
+tasks:
+  detection:
+    detection_radius_m: 650
+    priority: 80
+    reward: 25
+    required_capability: scout
+  tracking:
+    confirmation_s: 6
+    priority: 70
+    reward: 35
+    required_capability: tracking
+  relay:
+    priority: 65
+    reward: 30
+    required_capability: relay
+    link_source: 1
+    link_destination: 3
+  designation:
+    tracking_required_s: 12
+    designator_radius_m: 900
+    priority: 90
+    reward: 50
+    required_capability: designator
+
+allocation_interface:
+  enabled: true
+  mock_assignments: false
+  log_file: logs/audisys/allocation_messages.csv

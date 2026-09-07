@@ -58,11 +58,12 @@ if [[ "${GAZEBO_GUI:-0}" == "1" ]]; then
   echo $! >> "$RUN_DIR/pids"
 fi
 
-sleep 8
+sleep "${PX4_GAZEBO_SETTLE_S:-14}"
 
 POSES=("-15,0,0,0,0,0" "0,0,0,0,0,0" "15,0,0,0,0,0")
 for i in 0 1 2; do
   instance_dir="$RUN_DIR/px4_instance_$i"
+  log_file="$LOG_DIR/px4_instance_${i}.log"
   rm -rf "$instance_dir"
   mkdir -p "$instance_dir"
   nohup /bin/bash -c 'cd "$1"; shift; exec "$@"' _ "$instance_dir" \
@@ -72,9 +73,25 @@ for i in 0 1 2; do
       PX4_SIM_MODEL=gz_x500 \
       PX4_GZ_MODEL_POSE="${POSES[$i]}" \
       "$PX4_DIR/build/px4_sitl_default/bin/px4" -i "$i" -d "$PX4_DIR/build/px4_sitl_default/etc" \
-      >"$LOG_DIR/px4_instance_${i}.log" 2>&1 </dev/null &
+      >"$log_file" 2>&1 </dev/null &
   echo $! >> "$RUN_DIR/pids"
-  sleep 5
+  offboard_remote_port=$((14540 + i))
+  deadline=$((SECONDS + ${PX4_INSTANCE_READY_TIMEOUT_S:-45}))
+  while (( SECONDS < deadline )); do
+    if grep -q "remote port $offboard_remote_port" "$log_file" 2>/dev/null; then
+      break
+    fi
+    if grep -q "PX4 server already running" "$log_file" 2>/dev/null; then
+      echo "PX4 instance $i failed because another instance is already running. See $log_file"
+      exit 1
+    fi
+    sleep 1
+  done
+  if ! grep -q "remote port $offboard_remote_port" "$log_file" 2>/dev/null; then
+    echo "PX4 instance $i did not open its offboard MAVLink link. See $log_file"
+    exit 1
+  fi
+  sleep "${PX4_INSTANCE_START_DELAY_S:-3}"
 done
 
 cat > "$RUN_DIR/ports.txt" <<'PORTS'
