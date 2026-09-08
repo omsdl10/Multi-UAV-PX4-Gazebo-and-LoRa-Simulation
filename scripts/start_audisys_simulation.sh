@@ -29,9 +29,9 @@ if [[ "${AUDISYS_RUN_FLIGHT:-1}" == "1" ]]; then
   echo "Starting AuDiSys UAV movement mission"
   nohup "$PX4_DIR/.venv/bin/python" -u "$PROJECT_DIR/scripts/run_one_minute_terrain_simulation.py" \
     --duration "${AUDISYS_DURATION:-300}" \
-    --altitude "${AUDISYS_ALTITUDE:-12}" \
+    --altitude "${AUDISYS_ALTITUDE:-8}" \
     --speed "${AUDISYS_SPEED:-18}" \
-    --profile whole_area \
+    --profile "${AUDISYS_PROFILE:-whole_area}" \
     --output "$LOG_DIR/audisys/flight_positions.csv" \
     --no-land \
     >"$LOG_DIR/audisys/flight_mission.log" 2>&1 </dev/null &

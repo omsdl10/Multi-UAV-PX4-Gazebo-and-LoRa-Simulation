@@ -162,6 +162,47 @@ def audisys_target(world):
     material(marker_visual, "0.95 0.80 0.15 1", "1.0 0.88 0.18 1")
 
 
+def observer_camera(world, name, pose, horizontal_fov=1.15):
+    model = add(world, "model", name=name)
+    add(model, "static", "true")
+    add(model, "pose", pose)
+    link = add(model, "link", name="link")
+    sensor = add(link, "sensor", name="camera", type="camera")
+    add(sensor, "always_on", "1")
+    add(sensor, "update_rate", "15")
+    camera = add(sensor, "camera")
+    add(camera, "horizontal_fov", f"{horizontal_fov:.3f}")
+    image = add(camera, "image")
+    add(image, "width", "1280")
+    add(image, "height", "720")
+    add(image, "format", "R8G8B8")
+    clip = add(camera, "clip")
+    add(clip, "near", "0.5")
+    add(clip, "far", "9000")
+
+
+def add_observer_cameras(world):
+    observer_camera(world, "audisys_camera_overhead_wide", "0 0 3000 0 1.5708 0", 1.25)
+    observer_camera(world, "audisys_camera_uav_base", "-180 430 170 0 0.92 -0.78", 1.05)
+    observer_camera(world, "audisys_camera_border_checkpoint", "-360 290 260 0 0.88 -0.45", 1.10)
+    observer_camera(world, "audisys_camera_target_zone", "-1040 -250 230 0 0.86 -0.35", 1.05)
+
+
+def add_camera_gui_panels(world):
+    gui = add(world, "gui", fullscreen="0")
+    topics = [
+        ("AuDiSys Overhead Wide", "/world/uav_5km_world/model/audisys_camera_overhead_wide/link/link/sensor/camera/image"),
+        ("AuDiSys UAV Base", "/world/uav_5km_world/model/audisys_camera_uav_base/link/link/sensor/camera/image"),
+        ("AuDiSys Border Checkpoint", "/world/uav_5km_world/model/audisys_camera_border_checkpoint/link/link/sensor/camera/image"),
+        ("AuDiSys Target Zone", "/world/uav_5km_world/model/audisys_camera_target_zone/link/link/sensor/camera/image"),
+    ]
+    for title, topic in topics:
+        plugin = add(gui, "plugin", filename="ImageDisplay", name=title)
+        gz_gui = add(plugin, "gz-gui")
+        add(gz_gui, "property", "docked", key="state", type="string")
+        add(plugin, "topic", topic)
+
+
 def sandbag_wall(world, name, x, y, yaw, length=18):
     for i in range(int(length // 3)):
         offset = (i - length / 6) * 3.0
@@ -309,6 +350,7 @@ def generate():
     add(world, "plugin", filename="gz-sim-magnetometer-system", name="gz::sim::systems::Magnetometer")
     sensors = add(world, "plugin", filename="gz-sim-sensors-system", name="gz::sim::systems::Sensors")
     add(sensors, "render_engine", "ogre2")
+    add_camera_gui_panels(world)
 
     physics = add(world, "physics", type="ode")
     add(physics, "max_step_size", "0.004")
@@ -377,6 +419,7 @@ def generate():
     static_box(world, "uav_base_marking_x", "0 180 0.18 0 0 0", "78 4 0.05", "0.94 0.86 0.55 1", False)
     static_box(world, "uav_base_marking_y", "0 180 0.19 0 0 0", "4 56 0.05", "0.94 0.86 0.55 1", False)
     audisys_target(world)
+    add_observer_cameras(world)
 
     for i in range(95):
         x = random.uniform(-2400, 2400)

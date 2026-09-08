@@ -254,6 +254,12 @@ This starts the base simulator, the AuDiSys scenario layer, and a default whole-
 AUDISYS_DURATION=600 AUDISYS_SPEED=18 GAZEBO_GUI=1 scripts/start_audisys_simulation.sh
 ```
 
+Select a faster deterministic task-evidence movement profile with:
+
+```sh
+AUDISYS_PROFILE=visible_terrain AUDISYS_DURATION=90 GAZEBO_GUI=0 scripts/start_audisys_simulation.sh
+```
+
 Stop:
 
 ```sh
@@ -271,6 +277,17 @@ AuDiSys logs:
 - `logs/audisys/allocation_messages.csv`
 - `logs/audisys/flight_positions.csv`
 
+Observer cameras are included for recording:
+
+```sh
+scripts/show_audisys_camera.sh overhead
+scripts/show_audisys_camera.sh base
+scripts/show_audisys_camera.sh checkpoint
+scripts/show_audisys_camera.sh target
+```
+
+Use `overhead` to see all three UAVs moving across the world. Use `base` for takeoff, `checkpoint` for the border area, and `target` for the moving target zone.
+
 Documentation:
 
 - `docs/README_AUDISYS.md`
@@ -279,6 +296,37 @@ Documentation:
 - `docs/TASK1_TEST.md`
 - `docs/TASK2_TEST.md`
 - `docs/TASK3_TEST.md`
+
+## Task 3 Reproducibility
+
+Task 3 can be rerun with:
+
+```sh
+cd /Users/omsingh/Desktop/projects/multi_uav_lora_sim
+./scripts/task3_reproducibility_check.py --runs 3 --duration 90
+```
+
+Latest result on this Mac: PASS, generated on 2026-09-08 15:04:30 IST.
+
+Evidence:
+
+- `artifacts/task3/summary.json`
+- `artifacts/task3/run_1/`
+- `artifacts/task3/run_2/`
+- `artifacts/task3/run_3/`
+
+The three runs used the same seed/configuration and produced:
+
+- consistent task order: `RELAY`, `DETECTION`, `TRACKING`, `DESIGNATION`
+- consistent radio-condition transition order
+- parseable UAV, target, radio, task, event, allocation, flight, and LoRa logs
+- no stale project-tracked processes after shutdown
+
+Observed P2P LoRa packet delivery was stable:
+
+- Run 1: 970 packets, PDR 0.9134
+- Run 2: 970 packets, PDR 0.9134
+- Run 3: 970 packets, PDR 0.9134
 
 ## Performance
 

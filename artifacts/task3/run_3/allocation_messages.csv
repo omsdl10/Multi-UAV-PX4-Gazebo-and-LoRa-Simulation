@@ -1,0 +1,85 @@
+time,message_type,payload
+1788859920.693,ObservationPublished,open_tasks=[]; allocator_connected=false
+1788859921.808,ObservationPublished,open_tasks=[]; allocator_connected=false
+1788859922.913,ObservationPublished,open_tasks=[]; allocator_connected=false
+1788859924.065,ObservationPublished,open_tasks=[]; allocator_connected=false
+1788859925.229,ObservationPublished,open_tasks=[]; allocator_connected=false
+1788859926.365,ObservationPublished,open_tasks=[]; allocator_connected=false
+1788859927.452,ObservationPublished,open_tasks=['T001']; allocator_connected=false
+1788859928.555,ObservationPublished,open_tasks=['T001']; allocator_connected=false
+1788859929.617,ObservationPublished,open_tasks=['T001']; allocator_connected=false
+1788859930.625,ObservationPublished,open_tasks=['T001']; allocator_connected=false
+1788859931.659,ObservationPublished,open_tasks=['T001']; allocator_connected=false
+1788859932.678,ObservationPublished,open_tasks=['T001']; allocator_connected=false
+1788859933.706,ObservationPublished,open_tasks=['T001']; allocator_connected=false
+1788859934.730,ObservationPublished,open_tasks=['T001']; allocator_connected=false
+1788859936.183,ObservationPublished,open_tasks=['T001']; allocator_connected=false
+1788859937.286,ObservationPublished,open_tasks=['T001']; allocator_connected=false
+1788859938.422,ObservationPublished,open_tasks=['T001']; allocator_connected=false
+1788859939.585,ObservationPublished,open_tasks=['T001']; allocator_connected=false
+1788859940.720,ObservationPublished,open_tasks=['T001']; allocator_connected=false
+1788859941.786,ObservationPublished,open_tasks=['T001']; allocator_connected=false
+1788859942.840,ObservationPublished,open_tasks=['T001']; allocator_connected=false
+1788859943.912,ObservationPublished,open_tasks=['T001']; allocator_connected=false
+1788859944.969,ObservationPublished,open_tasks=['T001']; allocator_connected=false
+1788859946.034,ObservationPublished,open_tasks=['T001']; allocator_connected=false
+1788859947.079,ObservationPublished,open_tasks=['T001']; allocator_connected=false
+1788859948.145,ObservationPublished,open_tasks=['T001']; allocator_connected=false
+1788859949.174,ObservationPublished,open_tasks=['T001']; allocator_connected=false
+1788859950.221,ObservationPublished,open_tasks=['T001']; allocator_connected=false
+1788859951.275,ObservationPublished,open_tasks=['T001']; allocator_connected=false
+1788859952.305,ObservationPublished,open_tasks=['T001']; allocator_connected=false
+1788859953.327,ObservationPublished,open_tasks=['T001']; allocator_connected=false
+1788859954.356,ObservationPublished,open_tasks=['T001']; allocator_connected=false
+1788859955.379,ObservationPublished,open_tasks=['T001']; allocator_connected=false
+1788859956.408,ObservationPublished,open_tasks=['T001']; allocator_connected=false
+1788859957.444,ObservationPublished,open_tasks=['T001']; allocator_connected=false
+1788859958.511,ObservationPublished,open_tasks=['T001']; allocator_connected=false
+1788859959.559,ObservationPublished,open_tasks=['T001']; allocator_connected=false
+1788859960.590,ObservationPublished,open_tasks=['T001']; allocator_connected=false
+1788859961.627,ObservationPublished,open_tasks=['T001']; allocator_connected=false
+1788859962.661,ObservationPublished,open_tasks=['T001']; allocator_connected=false
+1788859963.719,ObservationPublished,open_tasks=['T001']; allocator_connected=false
+1788859964.758,ObservationPublished,open_tasks=['T001']; allocator_connected=false
+1788859965.771,ObservationPublished,open_tasks=['T001']; allocator_connected=false
+1788859966.796,ObservationPublished,open_tasks=['T001']; allocator_connected=false
+1788859967.826,ObservationPublished,open_tasks=['T001']; allocator_connected=false
+1788859968.887,ObservationPublished,open_tasks=['T001']; allocator_connected=false
+1788859969.930,ObservationPublished,open_tasks=['T001']; allocator_connected=false
+1788859970.954,ObservationPublished,open_tasks=['T001']; allocator_connected=false
+1788859971.978,ObservationPublished,open_tasks=['T001']; allocator_connected=false
+1788859973.029,ObservationPublished,open_tasks=['T001']; allocator_connected=false
+1788859974.168,ObservationPublished,open_tasks=['T001']; allocator_connected=false
+1788859975.195,ObservationPublished,open_tasks=['T001']; allocator_connected=false
+1788859976.216,ObservationPublished,open_tasks=['T001']; allocator_connected=false
+1788859977.228,ObservationPublished,open_tasks=['T001']; allocator_connected=false
+1788859978.263,ObservationPublished,open_tasks=['T001']; allocator_connected=false
+1788859979.304,ObservationPublished,open_tasks=['T001']; allocator_connected=false
+1788859980.386,ObservationPublished,"open_tasks=['T001', 'T002']; allocator_connected=false"
+1788859981.889,ObservationPublished,"open_tasks=['T001', 'T002']; allocator_connected=false"
+1788859983.038,ObservationPublished,"open_tasks=['T001', 'T002']; allocator_connected=false"
+1788859984.478,ObservationPublished,"open_tasks=['T001', 'T002']; allocator_connected=false"
+1788859985.495,ObservationPublished,"open_tasks=['T001', 'T002']; allocator_connected=false"
+1788859986.511,ObservationPublished,"open_tasks=['T001', 'T002', 'T003']; allocator_connected=false"
+1788859987.524,ObservationPublished,"open_tasks=['T001', 'T002', 'T003']; allocator_connected=false"
+1788859988.551,ObservationPublished,"open_tasks=['T001', 'T002', 'T003']; allocator_connected=false"
+1788859989.585,ObservationPublished,"open_tasks=['T001', 'T002', 'T003']; allocator_connected=false"
+1788859990.693,ObservationPublished,"open_tasks=['T001', 'T002', 'T003']; allocator_connected=false"
+1788859991.739,ObservationPublished,"open_tasks=['T001', 'T002', 'T003']; allocator_connected=false"
+1788859992.779,ObservationPublished,"open_tasks=['T001', 'T002', 'T003']; allocator_connected=false"
+1788859993.847,ObservationPublished,"open_tasks=['T001', 'T002', 'T003']; allocator_connected=false"
+1788859994.917,ObservationPublished,"open_tasks=['T001', 'T002', 'T003']; allocator_connected=false"
+1788859996.390,ObservationPublished,"open_tasks=['T001', 'T002', 'T003']; allocator_connected=false"
+1788859997.555,ObservationPublished,"open_tasks=['T001', 'T002', 'T003']; allocator_connected=false"
+1788859998.712,ObservationPublished,"open_tasks=['T001', 'T002', 'T003', 'T004']; allocator_connected=false"
+1788859999.752,ObservationPublished,"open_tasks=['T001', 'T002', 'T003', 'T004']; allocator_connected=false"
+1788860000.789,ObservationPublished,"open_tasks=['T001', 'T002', 'T003', 'T004']; allocator_connected=false"
+1788860001.833,ObservationPublished,"open_tasks=['T001', 'T002', 'T003', 'T004']; allocator_connected=false"
+1788860002.882,ObservationPublished,"open_tasks=['T001', 'T002', 'T003', 'T004']; allocator_connected=false"
+1788860003.954,ObservationPublished,"open_tasks=['T001', 'T002', 'T003', 'T004']; allocator_connected=false"
+1788860005.011,ObservationPublished,"open_tasks=['T001', 'T002', 'T003', 'T004']; allocator_connected=false"
+1788860006.050,ObservationPublished,"open_tasks=['T001', 'T002', 'T003', 'T004']; allocator_connected=false"
+1788860007.096,ObservationPublished,"open_tasks=['T001', 'T002', 'T003', 'T004']; allocator_connected=false"
+1788860008.139,ObservationPublished,"open_tasks=['T001', 'T002', 'T003', 'T004']; allocator_connected=false"
+1788860009.190,ObservationPublished,"open_tasks=['T001', 'T002', 'T003', 'T004']; allocator_connected=false"
+1788860010.220,ObservationPublished,"open_tasks=['T001', 'T002', 'T003', 'T004']; allocator_connected=false"

@@ -1,0 +1,713 @@
+{
+  "status": "PASS",
+  "generated_at": "2026-09-08 15:04:30 IST",
+  "runs": 3,
+  "duration_s": 90,
+  "same_seed_config": true,
+  "task_order_consistent": true,
+  "radio_transition_order_consistent": true,
+  "summaries": [
+    {
+      "run": 1,
+      "status": "PASS",
+      "duration_s": 90,
+      "stop_output": "Stopped project-tracked simulation processes.\n",
+      "log_checks": [
+        {
+          "path": "artifacts/task3/run_1/uav_state.csv",
+          "exists": true,
+          "rows": 246,
+          "parseable": true,
+          "require_rows": true
+        },
+        {
+          "path": "artifacts/task3/run_1/target_state.csv",
+          "exists": true,
+          "rows": 82,
+          "parseable": true,
+          "require_rows": true
+        },
+        {
+          "path": "artifacts/task3/run_1/radio.csv",
+          "exists": true,
+          "rows": 599,
+          "parseable": true,
+          "require_rows": true
+        },
+        {
+          "path": "artifacts/task3/run_1/tasks.csv",
+          "exists": true,
+          "rows": 4,
+          "parseable": true,
+          "require_rows": true
+        },
+        {
+          "path": "artifacts/task3/run_1/events.csv",
+          "exists": true,
+          "rows": 851,
+          "parseable": true,
+          "require_rows": true
+        },
+        {
+          "path": "artifacts/task3/run_1/allocation_messages.csv",
+          "exists": true,
+          "rows": 82,
+          "parseable": true,
+          "require_rows": true
+        },
+        {
+          "path": "artifacts/task3/run_1/flight_positions.csv",
+          "exists": true,
+          "rows": 249,
+          "parseable": true,
+          "require_rows": true
+        },
+        {
+          "path": "artifacts/task3/run_1/lora_packets.csv",
+          "exists": true,
+          "rows": 970,
+          "parseable": true,
+          "require_rows": true
+        },
+        {
+          "path": "artifacts/task3/run_1/topology_changes.csv",
+          "exists": true,
+          "rows": 44,
+          "parseable": true,
+          "require_rows": false
+        }
+      ],
+      "flight": {
+        "1": {
+          "samples": 83,
+          "min_x": 0.051,
+          "max_x": 262.582,
+          "min_y": -302.624,
+          "max_y": 0.017,
+          "max_z": 8.117,
+          "span_x_m": 262.531,
+          "span_y_m": 302.641
+        },
+        "2": {
+          "samples": 83,
+          "min_x": -345.3,
+          "max_x": 0.028,
+          "min_y": -0.19,
+          "max_y": 114.088,
+          "max_z": 13.01,
+          "span_x_m": 345.328,
+          "span_y_m": 114.278
+        },
+        "3": {
+          "samples": 83,
+          "min_x": 0.02,
+          "max_x": 239.34,
+          "min_y": -0.046,
+          "max_y": 328.605,
+          "max_z": 18.008,
+          "span_x_m": 239.32,
+          "span_y_m": 328.651
+        }
+      },
+      "radio": {
+        "packets": 970,
+        "received": 886,
+        "dropped": 84,
+        "pdr": 0.9134,
+        "average_rssi_dbm": -56.539,
+        "average_snr_db": 63.461,
+        "pairs": {
+          "1->2": {
+            "packets": 161,
+            "received": 145,
+            "dropped": 16
+          },
+          "1->3": {
+            "packets": 163,
+            "received": 150,
+            "dropped": 13
+          },
+          "2->1": {
+            "packets": 165,
+            "received": 152,
+            "dropped": 13
+          },
+          "2->3": {
+            "packets": 157,
+            "received": 144,
+            "dropped": 13
+          },
+          "3->1": {
+            "packets": 160,
+            "received": 144,
+            "dropped": 16
+          },
+          "3->2": {
+            "packets": 164,
+            "received": 151,
+            "dropped": 13
+          }
+        }
+      },
+      "events_signature": [
+        "ScenarioStarted",
+        "TaskCreated",
+        "TaskCreated",
+        "TaskCreated",
+        "TaskCreated",
+        "ScenarioStopped"
+      ],
+      "tasks_signature": [
+        "RELAY:CREATED",
+        "DETECTION:CREATED",
+        "TRACKING:CREATED",
+        "DESIGNATION:CREATED"
+      ],
+      "radio_transition_signature": [
+        "1->2:NORMAL",
+        "1->3:NORMAL",
+        "2->1:NORMAL",
+        "2->3:NORMAL",
+        "3->1:NORMAL",
+        "3->2:NORMAL",
+        "1->2:DEGRADED",
+        "3->1:DEGRADED",
+        "2->3:DEGRADED",
+        "1->3:DEGRADED",
+        "1->3:NORMAL",
+        "3->1:NORMAL",
+        "2->1:DEGRADED",
+        "2->3:NORMAL",
+        "1->2:NORMAL",
+        "3->1:DEGRADED",
+        "2->3:DEGRADED",
+        "2->3:NORMAL",
+        "2->3:DEGRADED",
+        "1->3:DEGRADED",
+        "2->1:NORMAL",
+        "2->3:NORMAL",
+        "3->1:NORMAL",
+        "1->3:NORMAL",
+        "2->3:DEGRADED",
+        "1->3:DEGRADED",
+        "3->1:DEGRADED",
+        "3->2:DEGRADED",
+        "2->3:NORMAL",
+        "3->1:NORMAL",
+        "3->2:NORMAL",
+        "1->3:NORMAL",
+        "3->2:DEGRADED",
+        "1->2:DEGRADED",
+        "2->1:DEGRADED",
+        "3->2:NORMAL",
+        "1->2:NORMAL",
+        "2->1:NORMAL",
+        "1->2:DEGRADED",
+        "2->3:DEGRADED",
+        "3->1:DEGRADED",
+        "1->3:DEGRADED",
+        "1->2:NORMAL",
+        "2->3:NORMAL",
+        "3->1:NORMAL",
+        "3->2:DEGRADED",
+        "1->2:DEGRADED",
+        "1->3:NORMAL",
+        "2->3:DEGRADED",
+        "3->2:NORMAL",
+        "3->2:DEGRADED",
+        "2->3:NORMAL",
+        "3->2:NORMAL",
+        "2->3:DEGRADED",
+        "2->1:DEGRADED",
+        "1->2:NORMAL",
+        "1->3:DEGRADED",
+        "1->2:DEGRADED",
+        "2->1:NORMAL",
+        "1->3:NORMAL",
+        "2->1:DEGRADED",
+        "3->1:DEGRADED",
+        "2->3:NORMAL",
+        "2->3:DEGRADED",
+        "2->1:NORMAL",
+        "1->2:NORMAL",
+        "2->1:DEGRADED",
+        "2->3:NORMAL",
+        "3->1:NORMAL",
+        "1->2:DEGRADED",
+        "2->1:NORMAL",
+        "3->1:DEGRADED",
+        "1->2:NORMAL",
+        "2->1:DEGRADED"
+      ],
+      "stale_processes_after_stop": []
+    },
+    {
+      "run": 2,
+      "status": "PASS",
+      "duration_s": 90,
+      "stop_output": "Stopped project-tracked simulation processes.\n",
+      "log_checks": [
+        {
+          "path": "artifacts/task3/run_2/uav_state.csv",
+          "exists": true,
+          "rows": 252,
+          "parseable": true,
+          "require_rows": true
+        },
+        {
+          "path": "artifacts/task3/run_2/target_state.csv",
+          "exists": true,
+          "rows": 84,
+          "parseable": true,
+          "require_rows": true
+        },
+        {
+          "path": "artifacts/task3/run_2/radio.csv",
+          "exists": true,
+          "rows": 599,
+          "parseable": true,
+          "require_rows": true
+        },
+        {
+          "path": "artifacts/task3/run_2/tasks.csv",
+          "exists": true,
+          "rows": 4,
+          "parseable": true,
+          "require_rows": true
+        },
+        {
+          "path": "artifacts/task3/run_2/events.csv",
+          "exists": true,
+          "rows": 857,
+          "parseable": true,
+          "require_rows": true
+        },
+        {
+          "path": "artifacts/task3/run_2/allocation_messages.csv",
+          "exists": true,
+          "rows": 84,
+          "parseable": true,
+          "require_rows": true
+        },
+        {
+          "path": "artifacts/task3/run_2/flight_positions.csv",
+          "exists": true,
+          "rows": 252,
+          "parseable": true,
+          "require_rows": true
+        },
+        {
+          "path": "artifacts/task3/run_2/lora_packets.csv",
+          "exists": true,
+          "rows": 970,
+          "parseable": true,
+          "require_rows": true
+        },
+        {
+          "path": "artifacts/task3/run_2/topology_changes.csv",
+          "exists": true,
+          "rows": 44,
+          "parseable": true,
+          "require_rows": false
+        }
+      ],
+      "flight": {
+        "1": {
+          "samples": 84,
+          "min_x": 0.048,
+          "max_x": 228.574,
+          "min_y": -268.073,
+          "max_y": 0.029,
+          "max_z": 8.092,
+          "span_x_m": 228.526,
+          "span_y_m": 268.102
+        },
+        "2": {
+          "samples": 84,
+          "min_x": -313.199,
+          "max_x": 0.013,
+          "min_y": -0.152,
+          "max_y": 100.821,
+          "max_z": 13.012,
+          "span_x_m": 313.212,
+          "span_y_m": 100.973
+        },
+        "3": {
+          "samples": 84,
+          "min_x": 0.023,
+          "max_x": 207.891,
+          "min_y": 0.021,
+          "max_y": 288.746,
+          "max_z": 17.958,
+          "span_x_m": 207.868,
+          "span_y_m": 288.725
+        }
+      },
+      "radio": {
+        "packets": 970,
+        "received": 886,
+        "dropped": 84,
+        "pdr": 0.9134,
+        "average_rssi_dbm": -55.946,
+        "average_snr_db": 64.054,
+        "pairs": {
+          "1->2": {
+            "packets": 161,
+            "received": 145,
+            "dropped": 16
+          },
+          "1->3": {
+            "packets": 163,
+            "received": 150,
+            "dropped": 13
+          },
+          "2->1": {
+            "packets": 165,
+            "received": 152,
+            "dropped": 13
+          },
+          "2->3": {
+            "packets": 157,
+            "received": 144,
+            "dropped": 13
+          },
+          "3->1": {
+            "packets": 160,
+            "received": 144,
+            "dropped": 16
+          },
+          "3->2": {
+            "packets": 164,
+            "received": 151,
+            "dropped": 13
+          }
+        }
+      },
+      "events_signature": [
+        "ScenarioStarted",
+        "TaskCreated",
+        "TaskCreated",
+        "TaskCreated",
+        "TaskCreated",
+        "ScenarioStopped"
+      ],
+      "tasks_signature": [
+        "RELAY:CREATED",
+        "DETECTION:CREATED",
+        "TRACKING:CREATED",
+        "DESIGNATION:CREATED"
+      ],
+      "radio_transition_signature": [
+        "1->2:NORMAL",
+        "1->3:NORMAL",
+        "2->1:NORMAL",
+        "2->3:NORMAL",
+        "3->1:NORMAL",
+        "3->2:NORMAL",
+        "1->2:DEGRADED",
+        "3->1:DEGRADED",
+        "2->3:DEGRADED",
+        "1->3:DEGRADED",
+        "1->3:NORMAL",
+        "3->1:NORMAL",
+        "2->1:DEGRADED",
+        "2->3:NORMAL",
+        "1->2:NORMAL",
+        "3->1:DEGRADED",
+        "2->3:DEGRADED",
+        "2->3:NORMAL",
+        "2->3:DEGRADED",
+        "1->3:DEGRADED",
+        "2->1:NORMAL",
+        "2->3:NORMAL",
+        "3->1:NORMAL",
+        "1->3:NORMAL",
+        "2->3:DEGRADED",
+        "1->3:DEGRADED",
+        "3->1:DEGRADED",
+        "3->2:DEGRADED",
+        "2->3:NORMAL",
+        "3->1:NORMAL",
+        "3->2:NORMAL",
+        "1->3:NORMAL",
+        "3->2:DEGRADED",
+        "1->2:DEGRADED",
+        "2->1:DEGRADED",
+        "3->2:NORMAL",
+        "1->2:NORMAL",
+        "2->1:NORMAL",
+        "1->2:DEGRADED",
+        "2->3:DEGRADED",
+        "3->1:DEGRADED",
+        "1->3:DEGRADED",
+        "1->2:NORMAL",
+        "2->3:NORMAL",
+        "3->1:NORMAL",
+        "3->2:DEGRADED",
+        "1->2:DEGRADED",
+        "1->3:NORMAL",
+        "2->3:DEGRADED",
+        "3->2:NORMAL",
+        "3->2:DEGRADED",
+        "2->3:NORMAL",
+        "3->2:NORMAL",
+        "2->3:DEGRADED",
+        "2->1:DEGRADED",
+        "1->2:NORMAL",
+        "1->3:DEGRADED",
+        "1->2:DEGRADED",
+        "2->1:NORMAL",
+        "1->3:NORMAL",
+        "2->1:DEGRADED",
+        "3->1:DEGRADED",
+        "2->3:NORMAL",
+        "2->3:DEGRADED",
+        "2->1:NORMAL",
+        "1->2:NORMAL",
+        "2->1:DEGRADED",
+        "2->3:NORMAL",
+        "3->1:NORMAL",
+        "1->2:DEGRADED",
+        "2->1:NORMAL",
+        "3->1:DEGRADED",
+        "1->2:NORMAL",
+        "2->1:DEGRADED"
+      ],
+      "stale_processes_after_stop": []
+    },
+    {
+      "run": 3,
+      "status": "PASS",
+      "duration_s": 90,
+      "stop_output": "Stopped project-tracked simulation processes.\n",
+      "log_checks": [
+        {
+          "path": "artifacts/task3/run_3/uav_state.csv",
+          "exists": true,
+          "rows": 252,
+          "parseable": true,
+          "require_rows": true
+        },
+        {
+          "path": "artifacts/task3/run_3/target_state.csv",
+          "exists": true,
+          "rows": 84,
+          "parseable": true,
+          "require_rows": true
+        },
+        {
+          "path": "artifacts/task3/run_3/radio.csv",
+          "exists": true,
+          "rows": 599,
+          "parseable": true,
+          "require_rows": true
+        },
+        {
+          "path": "artifacts/task3/run_3/tasks.csv",
+          "exists": true,
+          "rows": 4,
+          "parseable": true,
+          "require_rows": true
+        },
+        {
+          "path": "artifacts/task3/run_3/events.csv",
+          "exists": true,
+          "rows": 857,
+          "parseable": true,
+          "require_rows": true
+        },
+        {
+          "path": "artifacts/task3/run_3/allocation_messages.csv",
+          "exists": true,
+          "rows": 84,
+          "parseable": true,
+          "require_rows": true
+        },
+        {
+          "path": "artifacts/task3/run_3/flight_positions.csv",
+          "exists": true,
+          "rows": 255,
+          "parseable": true,
+          "require_rows": true
+        },
+        {
+          "path": "artifacts/task3/run_3/lora_packets.csv",
+          "exists": true,
+          "rows": 970,
+          "parseable": true,
+          "require_rows": true
+        },
+        {
+          "path": "artifacts/task3/run_3/topology_changes.csv",
+          "exists": true,
+          "rows": 44,
+          "parseable": true,
+          "require_rows": false
+        }
+      ],
+      "flight": {
+        "1": {
+          "samples": 85,
+          "min_x": 0.035,
+          "max_x": 246.994,
+          "min_y": -286.866,
+          "max_y": 0.03,
+          "max_z": 8.104,
+          "span_x_m": 246.959,
+          "span_y_m": 286.896
+        },
+        "2": {
+          "samples": 85,
+          "min_x": -336.194,
+          "max_x": 0.055,
+          "min_y": -0.153,
+          "max_y": 109.826,
+          "max_z": 13.073,
+          "span_x_m": 336.249,
+          "span_y_m": 109.979
+        },
+        "3": {
+          "samples": 85,
+          "min_x": 0.021,
+          "max_x": 223.959,
+          "min_y": -0.024,
+          "max_y": 309.169,
+          "max_z": 17.985,
+          "span_x_m": 223.938,
+          "span_y_m": 309.193
+        }
+      },
+      "radio": {
+        "packets": 970,
+        "received": 886,
+        "dropped": 84,
+        "pdr": 0.9134,
+        "average_rssi_dbm": -56.778,
+        "average_snr_db": 63.222,
+        "pairs": {
+          "1->2": {
+            "packets": 161,
+            "received": 145,
+            "dropped": 16
+          },
+          "1->3": {
+            "packets": 163,
+            "received": 150,
+            "dropped": 13
+          },
+          "2->1": {
+            "packets": 165,
+            "received": 152,
+            "dropped": 13
+          },
+          "2->3": {
+            "packets": 157,
+            "received": 144,
+            "dropped": 13
+          },
+          "3->1": {
+            "packets": 160,
+            "received": 144,
+            "dropped": 16
+          },
+          "3->2": {
+            "packets": 164,
+            "received": 151,
+            "dropped": 13
+          }
+        }
+      },
+      "events_signature": [
+        "ScenarioStarted",
+        "TaskCreated",
+        "TaskCreated",
+        "TaskCreated",
+        "TaskCreated",
+        "ScenarioStopped"
+      ],
+      "tasks_signature": [
+        "RELAY:CREATED",
+        "DETECTION:CREATED",
+        "TRACKING:CREATED",
+        "DESIGNATION:CREATED"
+      ],
+      "radio_transition_signature": [
+        "1->2:NORMAL",
+        "1->3:NORMAL",
+        "2->1:NORMAL",
+        "2->3:NORMAL",
+        "3->1:NORMAL",
+        "3->2:NORMAL",
+        "1->2:DEGRADED",
+        "3->1:DEGRADED",
+        "2->3:DEGRADED",
+        "1->3:DEGRADED",
+        "1->3:NORMAL",
+        "3->1:NORMAL",
+        "2->1:DEGRADED",
+        "2->3:NORMAL",
+        "1->2:NORMAL",
+        "3->1:DEGRADED",
+        "2->3:DEGRADED",
+        "2->3:NORMAL",
+        "2->3:DEGRADED",
+        "1->3:DEGRADED",
+        "2->1:NORMAL",
+        "2->3:NORMAL",
+        "3->1:NORMAL",
+        "1->3:NORMAL",
+        "2->3:DEGRADED",
+        "1->3:DEGRADED",
+        "3->1:DEGRADED",
+        "3->2:DEGRADED",
+        "2->3:NORMAL",
+        "3->1:NORMAL",
+        "3->2:NORMAL",
+        "1->3:NORMAL",
+        "3->2:DEGRADED",
+        "1->2:DEGRADED",
+        "2->1:DEGRADED",
+        "3->2:NORMAL",
+        "1->2:NORMAL",
+        "2->1:NORMAL",
+        "1->2:DEGRADED",
+        "2->3:DEGRADED",
+        "3->1:DEGRADED",
+        "1->3:DEGRADED",
+        "1->2:NORMAL",
+        "2->3:NORMAL",
+        "3->1:NORMAL",
+        "3->2:DEGRADED",
+        "1->2:DEGRADED",
+        "1->3:NORMAL",
+        "2->3:DEGRADED",
+        "3->2:NORMAL",
+        "3->2:DEGRADED",
+        "2->3:NORMAL",
+        "3->2:NORMAL",
+        "2->3:DEGRADED",
+        "2->1:DEGRADED",
+        "1->2:NORMAL",
+        "1->3:DEGRADED",
+        "1->2:DEGRADED",
+        "2->1:NORMAL",
+        "1->3:NORMAL",
+        "2->1:DEGRADED",
+        "3->1:DEGRADED",
+        "2->3:NORMAL",
+        "2->3:DEGRADED",
+        "2->1:NORMAL",
+        "1->2:NORMAL",
+        "2->1:DEGRADED",
+        "2->3:NORMAL",
+        "3->1:NORMAL",
+        "1->2:DEGRADED",
+        "2->1:NORMAL",
+        "3->1:DEGRADED",
+        "1->2:NORMAL",
+        "2->1:DEGRADED"
+      ],
+      "stale_processes_after_stop": []
+    }
+  ]
+}

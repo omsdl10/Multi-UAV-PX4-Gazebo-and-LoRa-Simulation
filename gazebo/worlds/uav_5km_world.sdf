@@ -11,6 +11,32 @@
     <plugin filename="gz-sim-sensors-system" name="gz::sim::systems::Sensors">
       <render_engine>ogre2</render_engine>
     </plugin>
+    <gui fullscreen="0">
+      <plugin filename="ImageDisplay" name="AuDiSys Overhead Wide">
+        <gz-gui>
+          <property key="state" type="string">docked</property>
+        </gz-gui>
+        <topic>/world/uav_5km_world/model/audisys_camera_overhead_wide/link/link/sensor/camera/image</topic>
+      </plugin>
+      <plugin filename="ImageDisplay" name="AuDiSys UAV Base">
+        <gz-gui>
+          <property key="state" type="string">docked</property>
+        </gz-gui>
+        <topic>/world/uav_5km_world/model/audisys_camera_uav_base/link/link/sensor/camera/image</topic>
+      </plugin>
+      <plugin filename="ImageDisplay" name="AuDiSys Border Checkpoint">
+        <gz-gui>
+          <property key="state" type="string">docked</property>
+        </gz-gui>
+        <topic>/world/uav_5km_world/model/audisys_camera_border_checkpoint/link/link/sensor/camera/image</topic>
+      </plugin>
+      <plugin filename="ImageDisplay" name="AuDiSys Target Zone">
+        <gz-gui>
+          <property key="state" type="string">docked</property>
+        </gz-gui>
+        <topic>/world/uav_5km_world/model/audisys_camera_target_zone/link/link/sensor/camera/image</topic>
+      </plugin>
+    </gui>
     <physics type="ode">
       <max_step_size>0.004</max_step_size>
       <real_time_factor>1.0</real_time_factor>
@@ -15606,6 +15632,94 @@
             <specular>0.08 0.08 0.08 1</specular>
           </material>
         </visual>
+      </link>
+    </model>
+    <model name="audisys_camera_overhead_wide">
+      <static>true</static>
+      <pose>0 0 3000 0 1.5708 0</pose>
+      <link name="link">
+        <sensor name="camera" type="camera">
+          <always_on>1</always_on>
+          <update_rate>15</update_rate>
+          <camera>
+            <horizontal_fov>1.250</horizontal_fov>
+            <image>
+              <width>1280</width>
+              <height>720</height>
+              <format>R8G8B8</format>
+            </image>
+            <clip>
+              <near>0.5</near>
+              <far>9000</far>
+            </clip>
+          </camera>
+        </sensor>
+      </link>
+    </model>
+    <model name="audisys_camera_uav_base">
+      <static>true</static>
+      <pose>-180 430 170 0 0.92 -0.78</pose>
+      <link name="link">
+        <sensor name="camera" type="camera">
+          <always_on>1</always_on>
+          <update_rate>15</update_rate>
+          <camera>
+            <horizontal_fov>1.050</horizontal_fov>
+            <image>
+              <width>1280</width>
+              <height>720</height>
+              <format>R8G8B8</format>
+            </image>
+            <clip>
+              <near>0.5</near>
+              <far>9000</far>
+            </clip>
+          </camera>
+        </sensor>
+      </link>
+    </model>
+    <model name="audisys_camera_border_checkpoint">
+      <static>true</static>
+      <pose>-360 290 260 0 0.88 -0.45</pose>
+      <link name="link">
+        <sensor name="camera" type="camera">
+          <always_on>1</always_on>
+          <update_rate>15</update_rate>
+          <camera>
+            <horizontal_fov>1.100</horizontal_fov>
+            <image>
+              <width>1280</width>
+              <height>720</height>
+              <format>R8G8B8</format>
+            </image>
+            <clip>
+              <near>0.5</near>
+              <far>9000</far>
+            </clip>
+          </camera>
+        </sensor>
+      </link>
+    </model>
+    <model name="audisys_camera_target_zone">
+      <static>true</static>
+      <pose>-1040 -250 230 0 0.86 -0.35</pose>
+      <link name="link">
+        <sensor name="camera" type="camera">
+          <always_on>1</always_on>
+          <update_rate>15</update_rate>
+          <camera>
+            <horizontal_fov>1.050</horizontal_fov>
+            <image>
+              <width>1280</width>
+              <height>720</height>
+              <format>R8G8B8</format>
+            </image>
+            <clip>
+              <near>0.5</near>
+              <far>9000</far>
+            </clip>
+          </camera>
+        </sensor>
       </link>
     </model>
     <model name="semi_arid_shrub_00">

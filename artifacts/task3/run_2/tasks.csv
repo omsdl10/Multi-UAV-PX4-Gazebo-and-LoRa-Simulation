@@ -1,0 +1,5 @@
+time,task_id,task_type,status,priority,reward,deadline,required_capability,target_id,assigned_uav,completion_time
+1788859684.340,T001,RELAY,CREATED,65,30.0,,relay,target_1,,
+1788859737.611,T002,DETECTION,CREATED,80,25.0,,scout,target_1,,
+1788859744.288,T003,TRACKING,CREATED,70,35.0,,tracking,target_1,,
+1788859757.051,T004,DESIGNATION,CREATED,90,50.0,,designator,target_1,,

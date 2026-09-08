@@ -1,0 +1,29 @@
+{
+  "1-2": {
+    "packets": 326,
+    "received": 297,
+    "pdr": 0.911042944785276,
+    "packet_loss": 0.08895705521472397,
+    "average_rssi": -56.06662883435583,
+    "average_snr": 63.93337116564417,
+    "average_latency_ms": 405.5693164983165
+  },
+  "1-3": {
+    "packets": 323,
+    "received": 294,
+    "pdr": 0.9102167182662538,
+    "packet_loss": 0.08978328173374617,
+    "average_rssi": -59.31248606811146,
+    "average_snr": 60.68751393188854,
+    "average_latency_ms": 404.95605782312924
+  },
+  "2-3": {
+    "packets": 321,
+    "received": 295,
+    "pdr": 0.9190031152647975,
+    "packet_loss": 0.0809968847352025,
+    "average_rssi": -54.94955140186916,
+    "average_snr": 65.05044859813084,
+    "average_latency_ms": 405.0494813559322
+  }
+}

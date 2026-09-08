@@ -1,0 +1,115 @@
+system 2: heartbeat
+system 3: heartbeat
+system 1: heartbeat
+system 1: telemetry interval request for msg 0 skipped: system 1: command 511 rejected with result 4
+system 2: telemetry interval request for msg 0 skipped: system 2: command 511 rejected with result 4
+system 3: telemetry interval request for msg 0 skipped: system 3: command 511 rejected with result 4
+system 1: set ground speed to 18.0 m/s
+system 2: set ground speed to 18.0 m/s
+system 3: set ground speed to 18.0 m/s
+system 1: arm and takeoff to 8.0 m
+system 2: arm and takeoff to 13.0 m
+system 3: arm and takeoff to 18.0 m
+system 1: airborne at 5.1 m
+system 2: airborne at 10.1 m
+system 3: airborne at 15.0 m
+collecting moving drone positions for 90s into /Users/omsingh/Desktop/projects/multi_uav_lora_sim/logs/audisys/flight_positions.csv
+system 1: new target east=-80 north=40 alt=8
+system 2: new target east=0 north=-60 alt=13
+system 3: new target east=80 north=40 alt=18
+logged  0.0s, LoRa packets this run: 0
+logged  1.0s, LoRa packets this run: 6
+logged  2.0s, LoRa packets this run: 14
+logged  3.1s, LoRa packets this run: 20
+logged  4.1s, LoRa packets this run: 26
+logged  5.1s, LoRa packets this run: 34
+logged  6.2s, LoRa packets this run: 40
+logged  7.2s, LoRa packets this run: 46
+logged  8.3s, LoRa packets this run: 53
+logged  9.3s, LoRa packets this run: 59
+logged 10.4s, LoRa packets this run: 65
+logged 11.4s, LoRa packets this run: 71
+logged 12.5s, LoRa packets this run: 80
+logged 13.5s, LoRa packets this run: 86
+logged 14.5s, LoRa packets this run: 92
+logged 15.6s, LoRa packets this run: 102
+logged 16.6s, LoRa packets this run: 108
+logged 17.7s, LoRa packets this run: 114
+logged 18.7s, LoRa packets this run: 120
+logged 19.7s, LoRa packets this run: 130
+system 1: new target east=-160 north=120 alt=8
+system 2: new target east=40 north=-160 alt=13
+system 3: new target east=180 north=120 alt=18
+logged 20.7s, LoRa packets this run: 136
+logged 21.8s, LoRa packets this run: 142
+logged 22.8s, LoRa packets this run: 150
+logged 23.9s, LoRa packets this run: 156
+logged 24.9s, LoRa packets this run: 162
+logged 25.9s, LoRa packets this run: 170
+logged 27.0s, LoRa packets this run: 176
+logged 28.0s, LoRa packets this run: 182
+logged 29.1s, LoRa packets this run: 188
+logged 30.1s, LoRa packets this run: 196
+logged 31.2s, LoRa packets this run: 204
+logged 32.2s, LoRa packets this run: 210
+logged 33.2s, LoRa packets this run: 216
+logged 34.3s, LoRa packets this run: 222
+logged 35.3s, LoRa packets this run: 228
+logged 36.4s, LoRa packets this run: 234
+logged 37.4s, LoRa packets this run: 240
+logged 38.4s, LoRa packets this run: 248
+logged 39.5s, LoRa packets this run: 254
+system 1: new target east=-240 north=200 alt=8
+system 2: new target east=80 north=-260 alt=13
+system 3: new target east=280 north=200 alt=18
+logged 40.5s, LoRa packets this run: 262
+logged 41.5s, LoRa packets this run: 268
+logged 42.6s, LoRa packets this run: 278
+logged 43.6s, LoRa packets this run: 284
+logged 44.6s, LoRa packets this run: 292
+logged 45.7s, LoRa packets this run: 298
+logged 46.7s, LoRa packets this run: 304
+logged 47.7s, LoRa packets this run: 312
+logged 48.7s, LoRa packets this run: 318
+logged 49.7s, LoRa packets this run: 324
+logged 50.8s, LoRa packets this run: 330
+logged 51.8s, LoRa packets this run: 338
+logged 52.9s, LoRa packets this run: 344
+logged 53.9s, LoRa packets this run: 351
+logged 54.9s, LoRa packets this run: 357
+logged 55.9s, LoRa packets this run: 363
+logged 56.9s, LoRa packets this run: 369
+logged 58.0s, LoRa packets this run: 377
+logged 59.0s, LoRa packets this run: 387
+logged 60.0s, LoRa packets this run: 393
+system 1: new target east=-320 north=280 alt=8
+system 2: new target east=120 north=-360 alt=13
+system 3: new target east=380 north=280 alt=18
+logged 61.1s, LoRa packets this run: 399
+logged 62.1s, LoRa packets this run: 407
+logged 63.1s, LoRa packets this run: 413
+logged 64.1s, LoRa packets this run: 421
+logged 65.1s, LoRa packets this run: 427
+logged 66.1s, LoRa packets this run: 434
+logged 67.2s, LoRa packets this run: 440
+logged 68.2s, LoRa packets this run: 448
+logged 69.2s, LoRa packets this run: 454
+logged 70.3s, LoRa packets this run: 462
+logged 71.3s, LoRa packets this run: 470
+logged 72.4s, LoRa packets this run: 478
+logged 73.4s, LoRa packets this run: 484
+logged 74.5s, LoRa packets this run: 493
+logged 75.5s, LoRa packets this run: 499
+logged 76.6s, LoRa packets this run: 505
+logged 77.6s, LoRa packets this run: 515
+logged 78.7s, LoRa packets this run: 524
+logged 79.7s, LoRa packets this run: 530
+system 1: new target east=-80 north=40 alt=8
+system 2: new target east=0 north=-60 alt=13
+system 3: new target east=80 north=40 alt=18
+logged 80.7s, LoRa packets this run: 536
+logged 81.8s, LoRa packets this run: 542
+logged 82.8s, LoRa packets this run: 550
+logged 83.9s, LoRa packets this run: 556
+logged 84.9s, LoRa packets this run: 562
+logged 86.0s, LoRa packets this run: 569

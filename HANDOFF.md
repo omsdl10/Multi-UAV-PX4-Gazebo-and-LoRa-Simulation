@@ -23,6 +23,12 @@ Useful runtime overrides:
 AUDISYS_DURATION=600 AUDISYS_SPEED=18 GAZEBO_GUI=1 scripts/start_audisys_simulation.sh
 ```
 
+For a shorter deterministic handoff/reproducibility run that creates task events quickly:
+
+```sh
+AUDISYS_DURATION=90 AUDISYS_PROFILE=visible_terrain GAZEBO_GUI=0 scripts/start_audisys_simulation.sh
+```
+
 To stop:
 
 ```sh
@@ -42,6 +48,24 @@ scripts/stop_audisys_simulation.sh
 - `logs/audisys/flight_positions.csv`
 - `logs/audisys/flight_mission.log`
 
+## Observer Cameras
+
+Four fixed camera sensors are available in the Gazebo world:
+
+- `audisys_camera_overhead_wide`
+- `audisys_camera_uav_base`
+- `audisys_camera_border_checkpoint`
+- `audisys_camera_target_zone`
+
+Open camera streams with:
+
+```sh
+scripts/show_audisys_camera.sh overhead
+scripts/show_audisys_camera.sh base
+scripts/show_audisys_camera.sh checkpoint
+scripts/show_audisys_camera.sh target
+```
+
 ## Task Logic
 
 - `DETECTION`: created when the Scout is within the configured target detection radius.
@@ -55,9 +79,33 @@ The layer does not assign tasks to UAVs.
 
 All roles, target route, task thresholds, radio thresholds, and log locations are in `config/audisys_scenario.yaml`.
 
+## Task 3 Reproducibility Evidence
+
+Task 3 was completed on 2026-09-08 with:
+
+```sh
+./scripts/task3_reproducibility_check.py --runs 3 --duration 90
+```
+
+Result: PASS.
+
+- Three clean starts completed.
+- Three UAVs operated and wrote movement logs.
+- Task order was consistent across all runs: `RELAY`, `DETECTION`, `TRACKING`, `DESIGNATION`.
+- Radio-condition transition order was consistent across all runs.
+- All expected CSV logs were generated and parseable.
+- Shutdown left no stale project-tracked PX4/Gazebo/LoRa/scenario processes.
+
+Evidence is saved in:
+
+- `artifacts/task3/summary.json`
+- `artifacts/task3/run_1/`
+- `artifacts/task3/run_2/`
+- `artifacts/task3/run_3/`
+
 ## Current Limitations
 
 - The target is a deterministic scripted surrogate, not a computer-vision detection target.
 - Task creation uses configured geometric/radio thresholds.
 - No final task allocation algorithm is included.
-- Repeatability should be validated by running the same configuration multiple times and comparing task/event order.
+- Task 3 validates repeatability for a 90-second handoff scenario, not a final publication-scale statistical campaign.

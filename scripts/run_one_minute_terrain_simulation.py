@@ -210,6 +210,12 @@ def wait_altitude(conns, states, sysid, target_m, timeout=45, tolerance=3.0):
         if best >= target_m - tolerance:
             print(f"system {sysid}: airborne at {best:.1f} m")
             return
+    if best is not None and best >= 2.5 and states[sysid].armed:
+        print(
+            f"system {sysid}: continuing visual replay below requested takeoff altitude "
+            f"(target={target_m:.1f} m, last={best:.1f} m)"
+        )
+        return
     raise RuntimeError(f"system {sysid}: takeoff altitude not reached; last={best:.1f} m")
 
 
